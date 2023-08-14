@@ -32,8 +32,12 @@ class SplashScreen extends StatelessWidget {
     //   //     context, AppLayout.id, (route) => false);
     // });
     return Scaffold(
-      backgroundColor: AppColors.backgroundColor,
+      backgroundColor: AppColors.pDarkColor,
       body: Center(
+        child:ElevatedButton(
+          onPressed: (){},
+          child: Text("hello"),
+        )
         //child: SplashScreenText(),
       ),
     );
