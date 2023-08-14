@@ -8,52 +8,48 @@ import '../../../constants/size_config.dart';
 
 class CustomAppbar extends StatelessWidget implements  PreferredSizeWidget {
   final String title;
-  final List<Widget> widgets;
-  final bool isBack;
-  final bool isHome;
-  Widget? leading;
 
-  CustomAppbar(
-      {
-        super.key,
-        required this.title,
-        this.isBack = true,
-        this.widgets = const <Widget>[],
-        this.isHome = false,
-        this.leading,
-        });
+  CustomAppbar({required this.title,});
 
 
   @override
-  Size get preferredSize => const Size.fromHeight(kToolbarHeight);
+  Size get preferredSize =>  Size.fromHeight(kToolbarHeight+(15*SizeConfig.verticalBlock));
 
   Widget build(BuildContext context) {
-    return AppBar(
+    return Column(
+      mainAxisAlignment: MainAxisAlignment.end,
 
-      leading: isBack
-          ? IconButton(
-        onPressed: (){},
-        icon: SvgPicture.asset(
-          AppAssets.backArrow,
-          height: SizeConfig.verticalBlock * 13.98,
-          width: SizeConfig.horizontalBlock * 7.16,
+      children: [
+        Row(
+          children: [
+            IconButton(
+              onPressed: (){},
+              icon: SvgPicture.asset(
+                AppAssets.backArrow,
+                height: SizeConfig.verticalBlock * 35,
+                width: SizeConfig.horizontalBlock * 36,
+              ),
+
+            ),
+            Text(
+              title,
+              style: AppTextStyle.appBarFont,
+              textDirection: TextDirection.rtl,
+            ),
+
+
+
+          ],
+        ),
+        Padding(
+          padding:  EdgeInsets.symmetric(horizontal:18*SizeConfig.horizontalBlock ),
+          child: Divider(
+            color: AppColors.dividerColor,
+            thickness: 1,
+          ),
         ),
 
-      )
-          : leading,
-      elevation: 0,
-      backgroundColor: AppColors.tBlackColor,
-      centerTitle: true,
-      title: Text(
-        title,
-
-
-textDirection: TextDirection.rtl,
-        // style: AppTextStyle.appBarTextStyle.copyWith(
-        //   fontSize: SizeConfig.horizontalBlock * 5.5,
-        // )
-      ),
-      actions: widgets,
+      ],
     );
   }
 
