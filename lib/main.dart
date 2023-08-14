@@ -2,6 +2,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:gymgym/presentation/screens/profile_screen.dart';
 
 import 'constants/Routes.dart';
 import 'constants/size_config.dart';
@@ -12,7 +13,7 @@ import 'presentation/screens/splash_screen.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
-  //CustomSVGLoad.LoadIcons();
+  CustomSVGLoad.LoadIcons();
   SystemChrome.setPreferredOrientations([
     DeviceOrientation.portraitUp,
   ]);
@@ -33,10 +34,12 @@ class _GymGymState extends State<GymGym> {
   void initState() {
     // TODO: implement initState
     super.initState();
+
   }
 
   @override
   Widget build(BuildContext context) {
+    SizeConfig().init(context);
     return
       // MultiBlocProvider(
       // providers: [
@@ -51,9 +54,16 @@ class _GymGymState extends State<GymGym> {
         navigatorKey: NavigationService.navigatorKey, // GlobalKey()
         debugShowCheckedModeBanner: false,
         routes: AppRoutes.appRoutes,
-        initialRoute: SplashScreen.id,
+        initialRoute: ProfileScreen.id,
         theme:ThemeData(
-          useMaterial3: true
+          useMaterial3: true,
+          textTheme: TextTheme(
+            displayMedium: TextStyle(
+              fontSize: SizeConfig.horizontalBlock * 16,
+              color: Colors.white,
+            ),
+
+          ),
         )
       );
 

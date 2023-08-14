@@ -2,7 +2,7 @@ import 'dart:math';
 import 'package:flutter/widgets.dart';
 class SizeConfig {
   static const double designWidth = 375;
-  static const double designHeight = 768;
+  static const double designHeight = 791;
   static late MediaQueryData _mediaQueryData;
   static late double screenWidth;
   static late double screenHeight;
