@@ -1,7 +1,8 @@
-
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:gymgym/business_logic/bottom_nav_bar_cubit/bottom_nav_bar_cubit.dart';
+import 'package:gymgym/presentation/screens/home_layout/home_layout.dart';
 
 import 'constants/Routes.dart';
 import 'constants/size_config.dart';
@@ -37,25 +38,15 @@ class _GymGymState extends State<GymGym> {
 
   @override
   Widget build(BuildContext context) {
-    return
-      // MultiBlocProvider(
-      // providers: [
-      //   // BlocProvider<ProductCubit>(
-      //   //   create: (context) => ProductCubit(ProductsLogic()),
-      //   // ),
-      //
-      //
-      // ],
-      // child:
-      MaterialApp(
-        navigatorKey: NavigationService.navigatorKey, // GlobalKey()
-        debugShowCheckedModeBanner: false,
-        routes: AppRoutes.appRoutes,
-        initialRoute: SplashScreen.id,
-        theme:ThemeData(
-          useMaterial3: true
-        )
-      );
-
+    return MultiBlocProvider(
+        providers: [
+          BlocProvider<NavBarCubit>(
+            create: (context) => NavBarCubit(),
+          ),
+        ],
+        child: MaterialApp(
+            debugShowCheckedModeBanner: false,
+            home: const HomeLayout(),
+            theme: ThemeData(useMaterial3: true)));
   }
 }
