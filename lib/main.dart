@@ -11,8 +11,8 @@ import 'core/NavigationService.dart';
 import 'presentation/screens/splash_screen.dart';
 
 void main() async {
-  WidgetsFlutterBinding.ensureInitialized();
-  CustomSVGLoad.LoadIcons();
+  //WidgetsFlutterBinding.ensureInitialized();
+  //CustomSVGLoad.LoadIcons();
   SystemChrome.setPreferredOrientations([
     DeviceOrientation.portraitUp,
   ]);
