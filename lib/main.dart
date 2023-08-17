@@ -37,20 +37,25 @@ class _GymGymState extends State<GymGym> {
 
   @override
   Widget build(BuildContext context) {
-    return MultiBlocProvider(
-      providers: [
-        // BlocProvider<ProductCubit>(
-        //   create: (context) => ProductCubit(ProductsLogic()),
-        // ),
-
-
-      ],
-      child: MaterialApp(
+    return
+      // MultiBlocProvider(
+      // providers: [
+      //   // BlocProvider<ProductCubit>(
+      //   //   create: (context) => ProductCubit(ProductsLogic()),
+      //   // ),
+      //
+      //
+      // ],
+      // child:
+      MaterialApp(
         navigatorKey: NavigationService.navigatorKey, // GlobalKey()
         debugShowCheckedModeBanner: false,
         routes: AppRoutes.appRoutes,
         initialRoute: SplashScreen.id,
-      ),
-    );
+        theme:ThemeData(
+          useMaterial3: true
+        )
+      );
+
   }
 }

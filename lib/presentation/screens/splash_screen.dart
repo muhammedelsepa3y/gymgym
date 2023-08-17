@@ -26,11 +26,11 @@ class SplashScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     //customInitial(context);
-    SizeConfig().init(context);
-    Future.delayed(const Duration(seconds: 3), () {
-      // Navigator.pushNamedAndRemoveUntil(
-      //     context, AppLayout.id, (route) => false);
-    });
+    // SizeConfig().init(context);
+    // Future.delayed(const Duration(seconds: 3), () {
+    //   // Navigator.pushNamedAndRemoveUntil(
+    //   //     context, AppLayout.id, (route) => false);
+    // });
     return Scaffold(
       backgroundColor: AppColors.backgroundColor,
       body: Center(
