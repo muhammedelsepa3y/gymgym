@@ -22,4 +22,10 @@ class AppTextStyle {
     fontSize: 12 * SizeConfig.textRatio,
     color: AppColors.tWhiteColor,
   );
+  static TextStyle get bodyWhiteFontWith16 => GoogleFonts.cairo(
+    fontStyle: FontStyle.normal,
+    fontWeight: FontWeight.normal,
+    fontSize: 16 * SizeConfig.textRatio,
+    color: AppColors.tWhiteColor,
+  );
 }
