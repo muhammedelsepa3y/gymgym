@@ -4,8 +4,7 @@ import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:gymgym/presentation/screens/profile_screen.dart';
-import 'business_logic/app_localization/app_localization.dart';
+import 'package:gymgym/presentation/screens/profile_screen/profile_screen.dart';
 import 'constants/AppColors.dart';
 
 
@@ -19,7 +18,6 @@ import 'core/LoadSVGIcons.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 
 import 'core/NavigationService.dart';
-import 'presentation/screens/splash_screen.dart';
 
 void main() async {
 
@@ -50,11 +48,9 @@ class GymGym extends StatelessWidget {
           ),
         ],
         child: MaterialApp(
-        navigatorKey: NavigationService.navigatorKey, // GlobalKey()
         debugShowCheckedModeBanner: false,
         routes: AppRoutes.appRoutes,
           localizationsDelegates: [
-            AppLocalizations.delegate,
             GlobalCupertinoLocalizations.delegate,
             GlobalMaterialLocalizations.delegate,
             GlobalWidgetsLocalizations.delegate,
@@ -63,7 +59,7 @@ class GymGym extends StatelessWidget {
           supportedLocales: [
             Locale('ar', ''),
           ],
-        initialRoute: ProfileScreen.id,
+        initialRoute: HomeLayout.id,
         theme:ThemeData(
           useMaterial3: true,
 

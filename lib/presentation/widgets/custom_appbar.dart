@@ -23,7 +23,9 @@ class CustomAppbar extends StatelessWidget implements  PreferredSizeWidget {
         Row(
           children: [
             IconButton(
-              onPressed: (){},
+              onPressed: (){
+                Navigator.pop(context);
+              },
               icon: SvgPicture.asset(
                 AppAssets.backArrow,
                 height: SizeConfig.verticalBlock * 35,

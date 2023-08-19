@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:gymgym/constants/AppColors.dart';
 
-import '../../constants/AppTextStyle.dart';
-import '../../constants/size_config.dart';
-import '../widgets/custom_appbar.dart';
+import '../../../constants/AppTextStyle.dart';
+import '../../../constants/size_config.dart';
+import '../../widgets/custom_appbar.dart';
 
 class ProfileScreen extends StatelessWidget {
   const ProfileScreen({super.key});

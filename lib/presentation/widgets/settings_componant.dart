@@ -6,8 +6,9 @@ class SettingComponent extends StatefulWidget {
   String title;
   IconData? prefixIcon;
   IconData? suffixIcon;
+  void Function()? onTap;
 
-   SettingComponent({required this.title,required this.prefixIcon,required this.suffixIcon,super.key});
+   SettingComponent({required this.title,required this.prefixIcon,required this.suffixIcon,this.onTap,super.key});
 
   @override
   State<SettingComponent> createState() => _SettingComponentState();
@@ -18,9 +19,7 @@ class _SettingComponentState extends State<SettingComponent> {
   Widget build(BuildContext context) {
     var mediaQuery=MediaQuery.sizeOf(context);
     return  GestureDetector(
-      onTap: (){
-
-      },
+      onTap:widget.onTap,
       child: Container(
         padding: const EdgeInsets.all(15),
         decoration: BoxDecoration(borderRadius: BorderRadius.circular(10),color: AppColors.pRedAccentColor),

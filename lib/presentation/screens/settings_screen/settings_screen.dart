@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:gymgym/constants/AppColors.dart';
+import 'package:gymgym/presentation/screens/profile_screen/profile_screen.dart';
 import 'package:gymgym/presentation/widgets/intro_texts.dart';
 import 'package:gymgym/presentation/widgets/settings_componant.dart';
 
@@ -26,7 +27,7 @@ class SettingsScreen extends StatelessWidget {
                 'إستمتع معنا بأفضل خدمات اللياقة البدنية',
               ),
               const SizedBox(height: 20,),
-              SettingComponent(title: "الحساب",prefixIcon: Icons.arrow_forward_ios,suffixIcon: Icons.person,),
+              SettingComponent(title: "الحساب",prefixIcon: Icons.arrow_forward_ios,suffixIcon: Icons.person,onTap: (){Navigator.pushNamed(context, ProfileScreen.id);},),
               const SizedBox(height: 20,),
 
               SettingComponent(title: "المفضلة",prefixIcon: Icons.arrow_forward_ios,suffixIcon: Icons.favorite_border_outlined,),

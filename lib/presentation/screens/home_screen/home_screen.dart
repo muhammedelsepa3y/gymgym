@@ -4,7 +4,7 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:gymgym/constants/AppColors.dart';
 
 class HomeScreen extends StatelessWidget {
-  static String id = "HomeScreen";
+  static String id = "/";
 
   const HomeScreen({super.key});
 
