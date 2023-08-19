@@ -9,14 +9,19 @@ import 'package:gymgym/presentation/screens/settings_screen/settings_screen.dart
 class NavBarCubit extends Cubit<NavBarStates>{
   NavBarCubit() : super(InitialState());
 
-  static NavBarCubit get(context) => BlocProvider.of(context);
+  static NavBarCubit get(context) => BlocProvider.of<NavBarCubit>(context);
 
   int currentIndex = 0;
-
   List<Widget> screenName = [
     const HomeScreen(),
     const SearchScreen(),
     const PlansScreen(),
     const SettingsScreen(),
   ];
+
+  void setIndex(int value) {
+    currentIndex = value;
+    emit(SetCurrentIndexStates());
+  }
+
 }
