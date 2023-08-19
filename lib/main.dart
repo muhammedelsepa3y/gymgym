@@ -1,10 +1,17 @@
 
+
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:gymgym/presentation/screens/profile_screen.dart';
 import 'constants/AppColors.dart';
+
+
+import 'package:gymgym/business_logic/bottom_nav_bar_cubit/bottom_nav_bar_cubit.dart';
+import 'package:gymgym/presentation/screens/home_layout/home_layout.dart';
+
+
 import 'constants/Routes.dart';
 import 'constants/size_config.dart';
 import 'core/LoadSVGIcons.dart';
@@ -32,17 +39,16 @@ class GymGym extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+
     SizeConfig().init(context);
-    return
-      // MultiBlocProvider(
-      // providers: [
-      //   // BlocProvider<ProductCubit>(
-      //   //   create: (context) => ProductCubit(ProductsLogic()),
-      //   // ),
-      //
-      //
-      // ],
-      // child:
+     
+    return MultiBlocProvider(
+        providers: [
+          BlocProvider<NavBarCubit>(
+            create: (context) => NavBarCubit(),
+          ),
+        ],
+        child: return
       MaterialApp(
         navigatorKey: NavigationService.navigatorKey, // GlobalKey()
         debugShowCheckedModeBanner: false,
@@ -64,7 +70,7 @@ class GymGym extends StatelessWidget {
           ),
 
         )
-      );
+      ));
 
   }
 }
