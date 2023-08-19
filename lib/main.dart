@@ -49,8 +49,7 @@ class GymGym extends StatelessWidget {
             create: (context) => NavBarCubit(),
           ),
         ],
-        child: return
-      MaterialApp(
+        child: MaterialApp(
         navigatorKey: NavigationService.navigatorKey, // GlobalKey()
         debugShowCheckedModeBanner: false,
         routes: AppRoutes.appRoutes,

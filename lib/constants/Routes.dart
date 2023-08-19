@@ -9,7 +9,7 @@ class AppRoutes {
   static Map<String, Widget Function(BuildContext)> appRoutes = {
 
     SplashScreen.id: (context) =>  SplashScreen(),
-    ProfileScreen.id:(context)=>ProfileScreen()
+    ProfileScreen.id:(context)=>ProfileScreen(),
     HomeScreen.id: (context) => const HomeScreen(),
     DetailScreen.id: (context) => DetailScreen(),
 
