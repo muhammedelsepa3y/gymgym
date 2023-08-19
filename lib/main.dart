@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:gymgym/presentation/screens/profile_screen.dart';
+import 'business_logic/app_localization/app_localization.dart';
 import 'constants/AppColors.dart';
 import 'constants/Routes.dart';
 import 'constants/size_config.dart';
@@ -48,9 +49,12 @@ class GymGym extends StatelessWidget {
         debugShowCheckedModeBanner: false,
         routes: AppRoutes.appRoutes,
           localizationsDelegates: [
+            AppLocalizations.delegate,
+            GlobalCupertinoLocalizations.delegate,
             GlobalMaterialLocalizations.delegate,
             GlobalWidgetsLocalizations.delegate,
           ],
+          locale: Locale('ar', ''),
           supportedLocales: [
             Locale('ar', ''),
           ],
