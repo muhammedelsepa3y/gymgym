@@ -10,6 +10,7 @@ class AppTextStyle {
       fontWeight: FontWeight.bold,
       fontSize: 16 * SizeConfig.textRatio,
   );
+
   static TextStyle get bodyGreyFont => GoogleFonts.cairo(
     fontStyle: FontStyle.normal,
     fontWeight: FontWeight.normal,
@@ -26,6 +27,12 @@ class AppTextStyle {
     fontStyle: FontStyle.normal,
     fontWeight: FontWeight.normal,
     fontSize: 16 * SizeConfig.textRatio,
+    color: AppColors.tWhiteColor,
+  );
+  static TextStyle get bodyWhiteFontWith14 => GoogleFonts.cairo(
+    fontStyle: FontStyle.normal,
+    fontWeight: FontWeight.normal,
+    fontSize: 14 * SizeConfig.textRatio,
     color: AppColors.tWhiteColor,
   );
 }
