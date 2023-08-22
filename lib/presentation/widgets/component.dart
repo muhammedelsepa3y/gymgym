@@ -27,27 +27,21 @@ Widget defaultButton({
               : [
             AppColors.pDarkColor,
             AppColors.pRedAccentColor,
+])
 
 
-   
-        gradient:const  LinearGradient(
-          begin: Alignment.bottomCenter,
-          end: Alignment.topCenter,
-
-          
-        ),
       ),
       width: width,
       child: MaterialButton(
 
         onPressed: onTap,
 
-        child: Text(
-          isUpper ? text.toUpperCase() : text,
-          style: GoogleFonts.cairo(
-            color: textColor,
-            fontSize: size,
-            fontWeight: FontWeight.bold,
+        // child: Text(
+        //   isUpper ? text.toUpperCase() : text,
+        //   style: GoogleFonts.cairo(
+        //     color: textColor,
+        //     fontSize: size,
+        //     fontWeight: FontWeight.bold,
 
         child: Padding(
           padding: const EdgeInsets.all(10.0),
