@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:gymgym/constants/AppColors.dart';
+import 'package:gymgym/constants/AppTextStyle.dart';
 
 Widget defaultButton({
   double width = double.infinity,
@@ -24,14 +25,9 @@ Widget defaultButton({
       width: width,
       child: MaterialButton(
         onPressed: onTap,
-        child: Text(
-          isUpper ? text.toUpperCase() : text,
-          style: TextStyle(
-            color: Colors.white,
-            fontSize: size,
-            fontWeight: FontWeight.bold,
-          ),
-        ),
+        child: Text(isUpper ? text.toUpperCase() : text,
+            style: AppTextStyle.bodyWhiteFontWith16
+                .copyWith(fontSize: 20, fontWeight: FontWeight.bold)),
       ),
     );
 Widget divider({hight, thickness, endIndent, indent}) => Divider(

@@ -72,24 +72,28 @@ class ProfileScreen extends StatelessWidget {
                 ),
                 Expanded(child: SizedBox()),
                 MaterialButton(
-                  onPressed: (){},
+                  onPressed: () {},
                   minWidth: 10 * SizeConfig.horizontalBlock,
                   child: Row(
                     children: [
-                      Text("تعديل",style: AppTextStyle.bodyWhiteFont,),
-                      SizedBox(width: 3 * SizeConfig.horizontalBlock,),
-                      Icon(Icons.arrow_forward_ios_outlined,
+                      Text(
+                        "تعديل",
+                        style: AppTextStyle.bodyWhiteFont,
+                      ),
+                      SizedBox(
+                        width: 3 * SizeConfig.horizontalBlock,
+                      ),
+                      Icon(
+                        Icons.arrow_forward_ios_outlined,
                         color: AppColors.tWhiteColor,
-                        size: 11* SizeConfig.horizontalBlock,
+                        size: 11 * SizeConfig.horizontalBlock,
                       )
                     ],
                   ),
                   shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(5),
-                      side: BorderSide(color: AppColors.tWhiteColor)
-                  ),
+                      side: BorderSide(color: AppColors.tWhiteColor)),
                 )
-
               ],
             ),
             SizedBox(
@@ -104,10 +108,12 @@ class ProfileScreen extends StatelessWidget {
             ),
             Column(
               children: [
-                Text("الايميل",style: AppTextStyle.bodyWhiteFont,),
+                Text(
+                  "الايميل",
+                  style: AppTextStyle.bodyWhiteFont,
+                ),
               ],
             )
-
           ],
         ),
       ),
