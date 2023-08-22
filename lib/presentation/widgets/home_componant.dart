@@ -5,6 +5,7 @@ import 'package:gymgym/constants/AppAssets.dart';
 import '../../constants/AppColors.dart';
 import '../../constants/AppTextStyle.dart';
 import '../../constants/size_config.dart';
+import '../screens/gym_details_screen/details_screen.dart';
 
 class MoreHomeButton extends StatelessWidget {
   String routeName;
@@ -27,7 +28,7 @@ class MoreHomeButton extends StatelessWidget {
           children: [
             Text(
               "المزيد",
-              style: AppTextStyle.bodyWhiteFont,
+              style: AppTextStyle.bodyWhiteFontWith14,
             ),
             const SizedBox(
               width: 8,
@@ -51,83 +52,93 @@ class DefaultAppContainer extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Column(
+    return InkWell(
+      onTap: () {
+         Navigator.pushNamed(context, DetailScreen.id);
+      },
+      child: Column(
 
-      children:[
-        Container(
-          height: 151 * SizeConfig.verticalBlock,
-          width: 161 * SizeConfig.horizontalBlock,
-          decoration: const BoxDecoration(
-            color: AppColors.pSoftColor,
-            borderRadius: BorderRadius.only(
-                topRight: Radius.circular(20), topLeft: Radius.circular(20)),
+        children:[
+          Container(
+            height: 151 * SizeConfig.verticalBlock,
+            width: 161 * SizeConfig.horizontalBlock,
+            decoration: const BoxDecoration(
+              color: AppColors.pSoftColor,
+              borderRadius: BorderRadius.only(
+                  topRight: Radius.circular(20), topLeft: Radius.circular(20)),
+            ),
+            child: Center(
+                child: Text(
+                  "صورة الجيم",
+                  style: AppTextStyle.bodyWhiteFontWith14,
+                )),
           ),
-          child: Center(
-              child: Text(
-                "صورة الجيم",
-                style: AppTextStyle.bodyWhiteFontWith14,
-              )),
-        ),
 
-        Container(
-          width: 161 * SizeConfig.horizontalBlock,
-          height: 108 * SizeConfig.verticalBlock,
-          decoration: const BoxDecoration(
-            borderRadius: BorderRadius.only(
-                bottomLeft: Radius.circular(20),
-                bottomRight: Radius.circular(20)),
-            gradient: LinearGradient(
-                begin: Alignment.topCenter,
-                end: Alignment.bottomCenter,
-                colors: [
-                  AppColors.plightRedColor,
-                  AppColors.pDarkRedColor,
-                ]),
-          ),
-          child: Padding(
-            padding: const EdgeInsets.all(8.0),
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                Text(
-                  "Gym Name",
-                  style: AppTextStyle.bodyWhiteFontWith14,
-                ),
-                Text(
-                  "مسافة : 0.5 كيلومتر",
-                  style: AppTextStyle.bodyWhiteFontWith14,
-                ),
-                Row(
-                  children: [
-                    IconButton(
-                      icon: SvgPicture.asset(
-                        AppAssets.favourite,
-                        height: SizeConfig.verticalBlock * 24,
-                        width: SizeConfig.horizontalBlock * 24,
-                      ),
-                      iconSize: 24,
-                      onPressed: () {},
-                    ),
-                    const Spacer(),
-                    SvgPicture.asset(
-                      AppAssets.star,
-                      height: SizeConfig.verticalBlock * 14,
-                      width: SizeConfig.horizontalBlock * 14.647,
-                    ),
-                    SizedBox(
-                      width: 8 * SizeConfig.horizontalBlock,
-                    ),
-                    Text(
-                      "4.5",
+          Container(
+            width: 161 * SizeConfig.horizontalBlock,
+            height: 108 * SizeConfig.verticalBlock,
+            decoration: const BoxDecoration(
+              borderRadius: BorderRadius.only(
+                  bottomLeft: Radius.circular(20),
+                  bottomRight: Radius.circular(20)),
+              gradient: LinearGradient(
+                  begin: Alignment.topCenter,
+                  end: Alignment.bottomCenter,
+                  colors: [
+                    AppColors.plightRedColor,
+                    AppColors.pDarkRedColor,
+                  ]),
+            ),
+            child: Padding(
+              padding:  EdgeInsets.all(7*SizeConfig.horizontalBlock),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Align(
+                    alignment: Alignment.centerLeft,
+                    child: Text(
+                      "Gym Name",
+                      textDirection: TextDirection.ltr,
                       style: AppTextStyle.bodyWhiteFontWith14,
                     ),
-                  ],
-                )
-              ],
+                  ),
+                  Text(
+                    "مسافة : 0.5 كيلومتر",
+                    style: AppTextStyle.bodyWhiteFontWith12,
+                  ),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      IconButton(
+                        icon: SvgPicture.asset(
+                          AppAssets.favourite,
+                          height: SizeConfig.verticalBlock * 24,
+                          width: SizeConfig.horizontalBlock * 24,
+                        ),
+                        iconSize: 24,
+                        onPressed: () {},
+                      ),
+                      const Spacer(),
+                      SvgPicture.asset(
+                        AppAssets.star,
+                        height: SizeConfig.verticalBlock * 14,
+                        width: SizeConfig.horizontalBlock * 14.647,
+                      ),
+                      SizedBox(
+                        width: 8 * SizeConfig.horizontalBlock,
+                      ),
+                      Text(
+                        "4.5",
+                        style: AppTextStyle.bodyWhiteFontWith14,
+                      ),
+                    ],
+                  )
+                ],
+              ),
             ),
           ),
-        ),
-      ]
+        ]
+      ),
     );
   }
 }

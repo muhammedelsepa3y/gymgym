@@ -11,6 +11,11 @@ class CustomSVGLoad{
       SvgAssetLoader(AppAssets.mailIcon),
       SvgAssetLoader(AppAssets.user_nameIcon),
       SvgAssetLoader(AppAssets.mapIcon),
+      SvgAssetLoader(AppAssets.star),
+      SvgAssetLoader(AppAssets.favourite),
+      SvgAssetLoader(AppAssets.doubleArrowLeft),
+      SvgAssetLoader(AppAssets.location),
+
 
     ];
     for(var loader in loaders){

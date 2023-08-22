@@ -1,10 +1,11 @@
 import 'package:flutter/material.dart';
 
 import '../../../constants/size_config.dart';
-import '../../widgets/custom_appbar.dart';
 import '../../widgets/home_componant.dart';
+import '../../widgets/shared/custom_appbar.dart';
 class FavouriteScreen extends StatelessWidget {
   const FavouriteScreen({super.key});
+  static String id = "FavouriteScreen";
 
   @override
   Widget build(BuildContext context) {

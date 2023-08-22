@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import '../../../constants/size_config.dart';
-import '../../widgets/custom_appbar.dart';
 import '../../widgets/home_componant.dart';
+import '../../widgets/shared/custom_appbar.dart';
 class LastVisitScreen extends StatelessWidget {
   static String id = "LastVisited";
   const LastVisitScreen({super.key});

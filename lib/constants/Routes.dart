@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:gymgym/presentation/screens/favourite_screen/favourite_screen.dart';
 import 'package:gymgym/presentation/screens/forget_password/forget_password.dart';
 import 'package:gymgym/presentation/screens/gym_details_screen/details_screen.dart';
 import 'package:gymgym/presentation/screens/home_screen/behind_you_screen.dart';
@@ -36,6 +37,7 @@ class AppRoutes  {
     PhoneEnterScreen.id: (context) =>  PhoneEnterScreen(),
     PhoneOTPScreen.id: (context) =>  PhoneOTPScreen(),
     ProfileEditScreen.id: (context) =>  ProfileEditScreen(),
+    FavouriteScreen.id: (context) =>  FavouriteScreen(),
 
   };
 }
