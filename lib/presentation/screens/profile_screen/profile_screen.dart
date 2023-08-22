@@ -1,14 +1,24 @@
+import 'dart:io';
+
 import 'package:flutter/material.dart';
 import 'package:gymgym/constants/AppColors.dart';
+import 'package:gymgym/presentation/screens/profile_screen/profile_edit_screen.dart';
+import 'package:image_picker/image_picker.dart';
 
 import '../../../constants/AppTextStyle.dart';
 import '../../../constants/size_config.dart';
-import '../../widgets/custom_appbar.dart';
+import '../../widgets/profile_widgets/profile_detail_component.dart';
+import '../../widgets/shared/custom_appbar.dart';
 
-class ProfileScreen extends StatelessWidget {
-  const ProfileScreen({super.key});
-
+class ProfileScreen extends StatefulWidget {
   static String id = "profileScreen";
+
+  @override
+  State<ProfileScreen> createState() => _ProfileScreenState();
+}
+
+class _ProfileScreenState extends State<ProfileScreen> {
+  XFile? image;
 
   @override
   Widget build(BuildContext context) {
@@ -46,10 +56,14 @@ class ProfileScreen extends StatelessWidget {
                 CircleAvatar(
                   radius: 30 * SizeConfig.horizontalBlock,
                   backgroundColor: AppColors.pDarkColor,
-                  child: CircleAvatar(
-                    radius: 28 * SizeConfig.horizontalBlock,
-                    backgroundImage: AssetImage("assets/images/pro.jpg"),
-                  ),
+                  child: image == null
+                      ? CircleAvatar(
+                          radius: 28 * SizeConfig.horizontalBlock,
+                          backgroundImage: AssetImage("assets/images/pro.jpg"))
+                      : CircleAvatar(
+                          radius: 28 * SizeConfig.horizontalBlock,
+                          backgroundImage: FileImage(File(image!.path)),
+                        ),
                 ),
                 SizedBox(
                   width: 5 * SizeConfig.horizontalBlock,
@@ -59,7 +73,7 @@ class ProfileScreen extends StatelessWidget {
                   children: [
                     Text(
                       "محمد عبد الرحمن",
-                      style: AppTextStyle.appBarFont,
+                      style: AppTextStyle.bodyWhiteFontWith16Bold,
                     ),
                     SizedBox(
                       height: 1 * SizeConfig.verticalBlock,
@@ -72,24 +86,35 @@ class ProfileScreen extends StatelessWidget {
                 ),
                 Expanded(child: SizedBox()),
                 MaterialButton(
-                  onPressed: (){},
+                  onPressed: () async {
+                    image = await Navigator.of(context).push(
+                        MaterialPageRoute(builder: (context) => ProfileEditScreen()));
+                    if (image != null)
+                      setState(() {
+
+                      });
+                  },
                   minWidth: 10 * SizeConfig.horizontalBlock,
                   child: Row(
                     children: [
-                      Text("تعديل",style: AppTextStyle.bodyWhiteFont,),
-                      SizedBox(width: 3 * SizeConfig.horizontalBlock,),
-                      Icon(Icons.arrow_forward_ios_outlined,
+                      Text(
+                        "تعديل",
+                        style: AppTextStyle.bodyWhiteFontWith12,
+                      ),
+                      SizedBox(
+                        width: 3 * SizeConfig.horizontalBlock,
+                      ),
+                      Icon(
+                        Icons.arrow_forward_ios_outlined,
                         color: AppColors.tWhiteColor,
-                        size: 11* SizeConfig.horizontalBlock,
+                        size: 11 * SizeConfig.horizontalBlock,
                       )
                     ],
                   ),
                   shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(5),
-                      side: BorderSide(color: AppColors.tWhiteColor)
-                  ),
+                      side: BorderSide(color: AppColors.tWhiteColor)),
                 )
-
               ],
             ),
             SizedBox(
@@ -100,14 +125,20 @@ class ProfileScreen extends StatelessWidget {
               thickness: 1,
             ),
             SizedBox(
-              height: 15 * SizeConfig.verticalBlock,
+              height: 10 * SizeConfig.verticalBlock,
             ),
-            Column(
-              children: [
-                Text("الايميل",style: AppTextStyle.bodyWhiteFont,),
-              ],
-            )
-
+            ProfileDetailComponent(
+              title: "الإيميل",
+              value: "muhammedelsepa3y@gmail.com",
+            ),
+            ProfileDetailComponent(
+              title: "رقم الهاتف",
+              value: "+201016673951",
+            ),
+            ProfileDetailComponent(
+              title: "العنوان",
+              value: "New Cairo, Cairo, Egypt",
+            ),
           ],
         ),
       ),

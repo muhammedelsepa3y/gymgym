@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:gymgym/constants/AppAssets.dart';
 import 'package:gymgym/constants/AppColors.dart';
@@ -9,8 +10,9 @@ import 'package:gymgym/presentation/screens/home_screen/last_visit_screen.dart';
 
 import '../../widgets/home_componant.dart';
 
+
 class HomeScreen extends StatelessWidget {
-  static String id = "/";
+  static String id = "home";
 
   const HomeScreen({super.key});
 
@@ -90,5 +92,6 @@ class HomeScreen extends StatelessWidget {
         ),
       ),
     );
+
   }
 }

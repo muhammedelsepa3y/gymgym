@@ -1,15 +1,14 @@
 
 
-import 'package:flutter/foundation.dart';
+
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:gymgym/presentation/screens/profile_screen/profile_screen.dart';
+import 'package:gymgym/presentation/screens/splash_screen/splash_screen.dart';
 import 'constants/AppColors.dart';
 
 
 import 'package:gymgym/business_logic/bottom_nav_bar_cubit/bottom_nav_bar_cubit.dart';
-import 'package:gymgym/presentation/screens/home_layout/home_layout.dart';
 
 
 import 'constants/Routes.dart';
@@ -17,7 +16,6 @@ import 'constants/size_config.dart';
 import 'core/LoadSVGIcons.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 
-import 'core/NavigationService.dart';
 
 void main() async {
 
@@ -46,6 +44,8 @@ class GymGym extends StatelessWidget {
           BlocProvider<NavBarCubit>(
             create: (context) => NavBarCubit(),
           ),
+
+
         ],
         child: MaterialApp(
         debugShowCheckedModeBanner: false,
@@ -57,9 +57,10 @@ class GymGym extends StatelessWidget {
           ],
           locale: Locale('ar', ''),
           supportedLocales: [
+            Locale('en', ''),
             Locale('ar', ''),
           ],
-        initialRoute: HomeLayout.id,
+        initialRoute: SplashScreen.id,
         theme:ThemeData(
           useMaterial3: true,
 

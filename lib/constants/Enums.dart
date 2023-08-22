@@ -1,3 +1,2 @@
 
-enum Products { similar, top, recently,mostSold }
-
+enum Direction { vertical, horizontal }

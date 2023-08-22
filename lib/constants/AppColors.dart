@@ -13,6 +13,10 @@ class AppColors{
   static const tGreyColor=Color(0xff92929D);
   static const blackColor=Color(0xff000000);
   static const bodyGrey=Color(0xff92929D);
+  static const redDark=Color(0xff530000);
+  static const red=Color(0xffC00000);
+static const greyIcon=Color(0xffDADADA);
+
 
   static const dividerColor=Color(0xffFFFFFF);
    // static Map<int, Color> purpleMap =

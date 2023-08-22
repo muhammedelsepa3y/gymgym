@@ -7,29 +7,37 @@ Widget defaultButton({
   required VoidCallback onTap,
   required String text,
   required double radius,
-  required double size,
+   double? size,
+  TextStyle? textStyle,
+
 }) =>
     Container(
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(radius),
-        gradient: const LinearGradient(
+
+        gradient:const  LinearGradient(
           begin: Alignment.bottomCenter,
           end: Alignment.topCenter,
           colors: [
-            AppColors.pDarkColor,
-            AppColors.pRedAccentColor,
+            AppColors.redDark,
+            AppColors.red,
+
           ],
         ),
       ),
       width: width,
       child: MaterialButton(
+
         onPressed: onTap,
-        child: Text(
-          isUpper ? text.toUpperCase() : text,
-          style: TextStyle(
-            color: Colors.white,
-            fontSize: size,
-            fontWeight: FontWeight.bold,
+        child: Padding(
+          padding: const EdgeInsets.all(10.0),
+          child: Text(
+            isUpper ? text.toUpperCase() : text,
+            style:textStyle??TextStyle(
+              color: Colors.white,
+              fontSize: size?? 16,
+              fontWeight: FontWeight.bold,
+            ),
           ),
         ),
       ),
