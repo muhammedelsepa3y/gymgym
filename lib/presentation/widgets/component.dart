@@ -1,9 +1,13 @@
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:gymgym/constants/AppColors.dart';
 
 Widget defaultButton({
   double width = double.infinity,
   bool isUpper = true,
+  Color? color,
+  Color? colorEdges,
+  Color? textColor,
   required VoidCallback onTap,
   required String text,
   required double radius,
@@ -12,10 +16,12 @@ Widget defaultButton({
     Container(
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(radius),
-        gradient: const LinearGradient(
+        gradient:  LinearGradient(
           begin: Alignment.bottomCenter,
           end: Alignment.topCenter,
-          colors: [
+          colors: color != null
+              ? [color, color] // Use the provided color if available
+              : [
             AppColors.pDarkColor,
             AppColors.pRedAccentColor,
           ],
@@ -26,14 +32,17 @@ Widget defaultButton({
         onPressed: onTap,
         child: Text(
           isUpper ? text.toUpperCase() : text,
-          style: TextStyle(
-            color: Colors.white,
+          style: GoogleFonts.cairo(
+            color: textColor,
             fontSize: size,
             fontWeight: FontWeight.bold,
           ),
         ),
       ),
     );
+
+
+
 Widget divider({hight, thickness, endIndent, indent}) => Divider(
       color: AppColors.tWhiteColor,
       height: hight,
@@ -41,3 +50,4 @@ Widget divider({hight, thickness, endIndent, indent}) => Divider(
       endIndent: endIndent,
       indent: indent,
     );
+

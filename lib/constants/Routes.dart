@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:gymgym/presentation/screens/gym_details_screen/details_screen.dart';
 import 'package:gymgym/presentation/screens/home_screen/home_screen.dart';
+import 'package:gymgym/presentation/screens/search_screen/best_offer.dart';
 
 import '../presentation/screens/home_layout/home_layout.dart';
 import '../presentation/screens/profile_screen/profile_screen.dart';
@@ -13,6 +14,8 @@ class AppRoutes {
     ProfileScreen.id:(context)=>ProfileScreen(),
 
     DetailScreen.id: (context) => DetailScreen(),
+
+    BestOffer.id: (context) => BestOffer(),
 
   };
 }
