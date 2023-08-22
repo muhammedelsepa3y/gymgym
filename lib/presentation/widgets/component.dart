@@ -18,7 +18,7 @@ Widget defaultButton({
     Container(
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(radius),
-<<<<<<< HEAD
+
         gradient:  LinearGradient(
           begin: Alignment.bottomCenter,
           end: Alignment.topCenter,
@@ -27,31 +27,28 @@ Widget defaultButton({
               : [
             AppColors.pDarkColor,
             AppColors.pRedAccentColor,
-=======
 
+
+   
         gradient:const  LinearGradient(
           begin: Alignment.bottomCenter,
           end: Alignment.topCenter,
-          colors: [
-            AppColors.redDark,
-            AppColors.red,
 
->>>>>>> origin/master
-          ],
+          
         ),
       ),
       width: width,
       child: MaterialButton(
 
         onPressed: onTap,
-<<<<<<< HEAD
+
         child: Text(
           isUpper ? text.toUpperCase() : text,
           style: GoogleFonts.cairo(
             color: textColor,
             fontSize: size,
             fontWeight: FontWeight.bold,
-=======
+
         child: Padding(
           padding: const EdgeInsets.all(10.0),
           child: Text(
@@ -61,7 +58,7 @@ Widget defaultButton({
               fontSize: size?? 16,
               fontWeight: FontWeight.bold,
             ),
->>>>>>> origin/master
+
           ),
         ),
       ),

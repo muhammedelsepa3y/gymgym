@@ -4,9 +4,9 @@ import 'package:gymgym/presentation/screens/forget_password/forget_password.dart
 import 'package:gymgym/presentation/screens/gym_details_screen/details_screen.dart';
 import 'package:gymgym/presentation/screens/home_screen/behind_you_screen.dart';
 import 'package:gymgym/presentation/screens/home_screen/home_screen.dart';
-<<<<<<< HEAD
+
 import 'package:gymgym/presentation/screens/search_screen/best_offer.dart';
-=======
+
 import 'package:gymgym/presentation/screens/login_screen/login_screen.dart';
 import 'package:gymgym/presentation/screens/phone_confirmation/phone_enter_confirm.dart';
 import 'package:gymgym/presentation/screens/register_screen/register_screen.dart';
@@ -16,7 +16,7 @@ import 'package:gymgym/presentation/screens/welcome_screens/welcome_before_auth_
 
 import 'package:gymgym/presentation/screens/home_screen/last_visit_screen.dart';
 
->>>>>>> origin/master
+
 
 import '../presentation/screens/home_layout/home_layout.dart';
 import '../presentation/screens/phone_confirmation/phone_otp_confirm.dart';
@@ -43,7 +43,9 @@ class AppRoutes  {
     ProfileEditScreen.id: (context) =>  ProfileEditScreen(),
     FavouriteScreen.id: (context) =>  FavouriteScreen(),
 
+
     BestOffer.id: (context) => BestOffer(),
+
 
   };
 }
