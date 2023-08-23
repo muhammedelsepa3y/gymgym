@@ -4,6 +4,7 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:gymgym/constants/AppAssets.dart';
 import 'package:gymgym/presentation/screens/search_screen/best_offer.dart';
 import 'package:gymgym/presentation/screens/search_screen/most_visited.dart';
+import 'package:gymgym/presentation/widgets/home_componant.dart';
 import 'package:gymgym/presentation/widgets/plan_widgets/linked_lable_radio.dart';
 import 'package:gymgym/presentation/widgets/plan_widgets/text_for_daliog.dart';
 import 'package:gymgym/presentation/widgets/search_widgets/item_card.dart';
@@ -16,6 +17,7 @@ class SearchScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       body: SafeArea(
+
         child: SingleChildScrollView(
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
@@ -23,6 +25,33 @@ class SearchScreen extends StatelessWidget {
               SearchBar(),
               const SizedBox(
                 height: 10.0,
+
+            ),
+            SearchText(
+              text: 'أفضل عروض',
+              function: () {
+                ///TODO: Using Router After Understand Structure Of Project
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => BestOffer(),
+                  ),
+                );
+              },
+            ),
+            const SizedBox(
+              height: 18.0,
+            ),
+             const Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 8.0),
+              child: Row(
+                children: [
+                  DefaultAppContainer(),
+                  SizedBox(
+                    width: 20.0,
+                  ),
+                  DefaultAppContainer(),
+                ],
               ),
               SearchText(
                 text: 'أفضل عروض',
@@ -36,8 +65,36 @@ class SearchScreen extends StatelessWidget {
                   );
                 },
               ),
+
               const SizedBox(
-                height: 18.0,
+
+            ),
+            SearchText(
+              text: 'الأكثر زيارة',
+              function: () {
+                ///TODO: Using Router After Understand Structure Of Project
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => MostVisited(),
+                  ),
+                );
+              },
+            ),
+            const SizedBox(
+              height: 8.0,
+            ),
+            const Padding(
+              padding: EdgeInsets.symmetric(horizontal: 8.0),
+              child: Row(
+                children: [
+                  DefaultAppContainer(),
+                  SizedBox(
+                    width: 20.0,
+                  ),
+                  DefaultAppContainer(),
+                ],
+
               ),
               const Padding(
                 padding: const EdgeInsets.symmetric(horizontal: 8.0),
