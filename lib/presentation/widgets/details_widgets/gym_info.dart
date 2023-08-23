@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:gymgym/constants/AppColors.dart';
+import 'package:gymgym/constants/AppTextStyle.dart';
 
 Widget gymInfo(BuildContext context) {
   var height = MediaQuery.of(context).size.height;
@@ -9,63 +10,34 @@ Widget gymInfo(BuildContext context) {
     padding: EdgeInsets.only(
       top: height / 40,
     ),
-    child: Column(crossAxisAlignment: CrossAxisAlignment.end, children: [
-      Text('نوع',
-          style: TextStyle(
-              color: AppColors.tWhiteColor,
-              fontSize: height * 0.025,
-              fontWeight: FontWeight.bold)),
+    child: Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
+      Text('نوع', style: AppTextStyle.bodyWhiteFontWith16),
       SizedBox(
-        height: height / 80,
+        height: height / 110,
+      ),
+      Text('هذا مجرد نص تجريبي فقط', style: AppTextStyle.bodyGreyFont),
+      SizedBox(
+        height: height / 110,
+      ),
+      Text('العنوان', style: AppTextStyle.bodyWhiteFontWith16),
+      SizedBox(
+        height: height / 110,
       ),
       Text('هذا مجرد نص تجريبي فقط',
           style: TextStyle(
             color: AppColors.tGreyColor,
             fontSize: height * 0.015,
           )),
+      Text('العروض', style: AppTextStyle.bodyWhiteFontWith16),
       SizedBox(
-        height: height / 70,
-      ),
-      Text('العنوان',
-          style: TextStyle(
-              color: AppColors.tWhiteColor,
-              fontSize: height * 0.025,
-              fontWeight: FontWeight.bold)),
-      SizedBox(
-        height: height / 80,
+        height: height / 110,
       ),
       Text('هذا مجرد نص تجريبي فقط',
           style: TextStyle(
             color: AppColors.tGreyColor,
             fontSize: height * 0.015,
           )),
-      SizedBox(
-        height: height / 70,
-      ),
-      Text('العروض',
-          style: TextStyle(
-              color: AppColors.tWhiteColor,
-              fontSize: height * 0.025,
-              fontWeight: FontWeight.bold)),
-      SizedBox(
-        height: height / 80,
-      ),
-      Text('هذا مجرد نص تجريبي فقط',
-          style: TextStyle(
-            color: AppColors.tGreyColor,
-            fontSize: height * 0.015,
-          )),
-      SizedBox(
-        height: height / 70,
-      ),
-      Text('خدمات',
-          style: TextStyle(
-              color: AppColors.tWhiteColor,
-              fontSize: height * 0.025,
-              fontWeight: FontWeight.bold)),
-      SizedBox(
-        height: height / 100,
-      ),
+      Text('خدمات', style: AppTextStyle.bodyWhiteFontWith16),
       Text('هذا مجرد نص تجريبي فقط',
           style: TextStyle(
             color: AppColors.tGreyColor,

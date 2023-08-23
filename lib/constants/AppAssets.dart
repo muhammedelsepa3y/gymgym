@@ -1,11 +1,9 @@
-class AppAssets{
-
-
+class AppAssets {
   //static const String passwordHide = 'assets/icons/passwordHide.svg';
-  static const String backArrow='assets/icons/backButton.svg';
+  static const String backArrow = 'assets/icons/backButton.svg';
 
   static const String passwordHide = 'assets/icons/passwordHide.svg';
-
+  static const String fav = 'assets/icons/fi-rr-heart.svg';
 
   static const String searchIcon = 'assets/icons/search.svg';
   static const String filterIcon = 'assets/icons/settings.svg';
@@ -23,8 +21,16 @@ class AppAssets{
 
   static const String star = 'assets/icons/star.svg';
   static const String favourite = 'assets/icons/favourite.svg';
-  static const String doubleArrowLeft = 'assets/icons/fi-rr-angle-double-left.svg';
+  static const String doubleArrowLeft =
+      'assets/icons/fi-rr-angle-double-left.svg';
   static const String location = 'assets/icons/ic-location.svg';
 
-
+  static const String visa = 'assets/images/visa.png';
+  static const String etisalat = 'assets/images/etisalat.png';
+  static const String orange = 'assets/images/orange.png';
+  static const String vodafone = 'assets/images/vodafone.png';
+  static const String fawry = 'assets/images/fawry.png';
+  static const String mastercard = 'assets/images/mastercard.png';
+  static const String credit = 'assets/images/Rectangle 7.png';
+  static const String approve = 'assets/images/approve.png';
 }
