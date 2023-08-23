@@ -10,7 +10,6 @@ import 'package:gymgym/presentation/screens/home_screen/last_visit_screen.dart';
 
 import '../../widgets/home_componant.dart';
 
-
 class HomeScreen extends StatelessWidget {
   static String id = "home";
 
@@ -68,7 +67,7 @@ class HomeScreen extends StatelessWidget {
                     const DefaultAppContainer(),
                   ],
                 ),
-                 MoreHomeButton(routeName: BehindYouScreen.id),
+                MoreHomeButton(routeName: BehindYouScreen.id),
                 Padding(
                   padding: const EdgeInsets.only(top: 10.0, bottom: 10),
                   child: Text(
@@ -85,13 +84,12 @@ class HomeScreen extends StatelessWidget {
                     const DefaultAppContainer(),
                   ],
                 ),
-                 MoreHomeButton(routeName: LastVisitScreen.id),
+                MoreHomeButton(routeName: LastVisitScreen.id),
               ],
             ),
           ),
         ),
       ),
     );
-
   }
 }

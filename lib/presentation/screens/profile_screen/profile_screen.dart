@@ -87,12 +87,9 @@ class _ProfileScreenState extends State<ProfileScreen> {
                 Expanded(child: SizedBox()),
                 MaterialButton(
                   onPressed: () async {
-                    image = await Navigator.of(context).push(
-                        MaterialPageRoute(builder: (context) => ProfileEditScreen()));
-                    if (image != null)
-                      setState(() {
-
-                      });
+                    image = await Navigator.of(context).push(MaterialPageRoute(
+                        builder: (context) => ProfileEditScreen()));
+                    if (image != null) setState(() {});
                   },
                   minWidth: 10 * SizeConfig.horizontalBlock,
                   child: Row(

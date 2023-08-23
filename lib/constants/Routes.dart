@@ -16,36 +16,41 @@ import 'package:gymgym/presentation/screens/welcome_screens/welcome_before_auth_
 
 import 'package:gymgym/presentation/screens/home_screen/last_visit_screen.dart';
 
-
-
 import '../presentation/screens/home_layout/home_layout.dart';
 import '../presentation/screens/phone_confirmation/phone_otp_confirm.dart';
 import '../presentation/screens/profile_screen/profile_edit_screen.dart';
+
+import 'package:gymgym/presentation/screens/payment_screens/confirm_payment/credit_payment.dart';
+import 'package:gymgym/presentation/screens/payment_screens/confirm_payment/success_pay_screen.dart';
+import 'package:gymgym/presentation/screens/payment_screens/confirm_payment/wallet_payment.dart';
+import 'package:gymgym/presentation/widgets/subtype_screen.dart';
+import '../presentation/screens/payment_screens/pay_way_screen.dart';
+
 import '../presentation/screens/profile_screen/profile_screen.dart';
 
-class AppRoutes  {
+class AppRoutes {
   static Map<String, Widget Function(BuildContext)> appRoutes = {
-
-    HomeLayout.id: (context) =>   HomeLayout(),
+    HomeLayout.id: (context) => HomeLayout(),
     HomeScreen.id: (context) => const HomeScreen(),
-    ProfileScreen.id:(context)=>ProfileScreen(),
-    LastVisitScreen.id:(context)=>const LastVisitScreen(),
-    BehindYouScreen.id:(context)=>const BehindYouScreen(),
+    ProfileScreen.id: (context) => ProfileScreen(),
+    LastVisitScreen.id: (context) => const LastVisitScreen(),
+    BehindYouScreen.id: (context) => const BehindYouScreen(),
     DetailScreen.id: (context) => DetailScreen(),
-    WelcomeStrangerScreen.id: (context) =>  WelcomeStrangerScreen(),
-    SplashScreen.id: (context) =>  SplashScreen(),
-    LoginScreen.id: (context) =>  LoginScreen(),
-    RegisterScreen.id: (context) =>  RegisterScreen(),
-    ForgetPassword.id: (context) =>  ForgetPassword(),
-    WelcomeUserScreen.id: (context) =>  WelcomeUserScreen(),
-    PhoneEnterScreen.id: (context) =>  PhoneEnterScreen(),
-    PhoneOTPScreen.id: (context) =>  PhoneOTPScreen(),
-    ProfileEditScreen.id: (context) =>  ProfileEditScreen(),
-    FavouriteScreen.id: (context) =>  FavouriteScreen(),
-
-
+    WelcomeStrangerScreen.id: (context) => WelcomeStrangerScreen(),
+    SplashScreen.id: (context) => SplashScreen(),
+    LoginScreen.id: (context) => LoginScreen(),
+    RegisterScreen.id: (context) => RegisterScreen(),
+    ForgetPassword.id: (context) => ForgetPassword(),
+    WelcomeUserScreen.id: (context) => WelcomeUserScreen(),
+    PhoneEnterScreen.id: (context) => PhoneEnterScreen(),
+    PhoneOTPScreen.id: (context) => PhoneOTPScreen(),
+    ProfileEditScreen.id: (context) => ProfileEditScreen(),
+    FavouriteScreen.id: (context) => FavouriteScreen(),
     BestOffer.id: (context) => BestOffer(),
-
-
+    SubtypeScreen.id: (context) => const SubtypeScreen(),
+    PayWayScreen.id: (context) => PayWayScreen(),
+    CreditPaymentScreen.id: (context) => CreditPaymentScreen(),
+    WalletPaymentScreen.id: (context) => WalletPaymentScreen(),
+    SuccessPaymentScreen.id: (context) => SuccessPaymentScreen(),
   };
 }

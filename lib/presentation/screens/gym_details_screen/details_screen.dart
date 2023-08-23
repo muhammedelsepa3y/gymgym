@@ -1,6 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/flutter_svg.dart';
+import 'package:gymgym/constants/AppAssets.dart';
 import 'package:gymgym/constants/AppColors.dart';
 import 'package:contained_tab_bar_view/contained_tab_bar_view.dart';
+import 'package:gymgym/constants/AppTextStyle.dart';
+import 'package:gymgym/constants/size_config.dart';
 import 'package:gymgym/presentation/widgets/component.dart';
 import 'package:gymgym/presentation/widgets/details_widgets/gym_info.dart';
 import 'package:gymgym/presentation/widgets/details_widgets/rating_info.dart';
@@ -24,99 +28,112 @@ class DetailScreen extends StatelessWidget {
       length: 2, // Added
       initialIndex: 0,
       child: Scaffold(
-        backgroundColor: Colors.black,
         appBar: AppBar(
-          toolbarHeight: height * 0.06,
-          backgroundColor: Colors.black,
-          title: const Align(
-            alignment: Alignment.centerRight,
-            child: Text(
-              'معلومات عن الجيم ',
-              style: TextStyle(fontSize: 25, color: Colors.white),
+          backgroundColor: AppColors.blackColor,
+          elevation: 0.0,
+          title: Text(
+            'معلومات عن الجيم',
+            style: AppTextStyle.appBarFont,
+            textDirection: TextDirection.rtl,
+          ),
+          leading: IconButton(
+            onPressed: () {
+              Navigator.pop(context);
+            },
+            icon: SvgPicture.asset(
+              AppAssets.backArrow,
+              height: SizeConfig.verticalBlock * 35,
+              width: SizeConfig.horizontalBlock * 36,
             ),
           ),
-          leading: const Icon(Icons.favorite_border, color: Colors.white),
+          actions: [
+            Padding(
+              padding: EdgeInsets.only(left: SizeConfig.horizontalBlock * 20),
+              child: InkWell(
+                onTap: () {},
+                child: SvgPicture.asset(
+                  AppAssets.fav,
+                  height: SizeConfig.verticalBlock * 25,
+                  width: SizeConfig.horizontalBlock * 36,
+                ),
+              ),
+            ),
+          ],
         ),
         body: SingleChildScrollView(
-          child: Padding(
-            padding: EdgeInsets.all(width * 0.03),
-            child: Column(children: [
-              divider(
-                  endIndent: width * 0.04,
-                  indent: width * .03,
-                  thickness: width * 0.004),
-              const Align(
+          child: Column(children: [
+            divider(
+                endIndent: width * 0.04,
+                indent: width * .03,
+                thickness: width * 0.004),
+            Padding(
+              padding: EdgeInsets.only(left: width * 0.025),
+              child: Align(
                 alignment: Alignment.centerLeft,
-                child: Text(
-                  'Gym Name ',
-                  style: TextStyle(fontSize: 22, color: Colors.white),
-                ),
+                child: Text('Gym Name ',
+                    style: AppTextStyle.bodyWhiteFontWith16
+                        .copyWith(fontSize: 22)),
               ),
-              Padding(
-                padding: const EdgeInsets.all(20.0),
-                child: ClipRRect(
-                    borderRadius:
-                        BorderRadius.all(Radius.circular(height * 0.035)),
-                    child: CarouselSlider(
-                      options: CarouselOptions(
-                        height: height * 0.3,
-                        initialPage: 0,
-                        enableInfiniteScroll: true,
-                        reverse: false,
-                        autoPlay: true,
-                        autoPlayInterval: Duration(seconds: 3),
-                        autoPlayAnimationDuration: Duration(seconds: 2),
-                        autoPlayCurve: Curves.fastOutSlowIn,
-                        scrollDirection: Axis.horizontal,
-                        viewportFraction: 1.0,
-                      ),
-                      items: imgList
-                          .map((item) => Center(
-                                child: Image.network(
-                                  item,
-                                  fit: BoxFit.cover,
-                                ),
-                              ))
-                          .toList(),
-                    )),
+            ),
+            Padding(
+              padding: const EdgeInsets.all(20.0),
+              child: ClipRRect(
+                  borderRadius:
+                      BorderRadius.all(Radius.circular(height * 0.035)),
+                  child: CarouselSlider(
+                    options: CarouselOptions(
+                      height: height * 0.3,
+                      initialPage: 0,
+                      enableInfiniteScroll: true,
+                      reverse: false,
+                      autoPlay: true,
+                      autoPlayInterval: Duration(seconds: 3),
+                      autoPlayAnimationDuration: Duration(seconds: 2),
+                      autoPlayCurve: Curves.fastOutSlowIn,
+                      scrollDirection: Axis.horizontal,
+                      viewportFraction: 1.0,
+                    ),
+                    items: imgList
+                        .map((item) => Center(
+                              child: Image.network(
+                                item,
+                                fit: BoxFit.cover,
+                              ),
+                            ))
+                        .toList(),
+                  )),
+            ),
+            Container(
+              padding: const EdgeInsets.all(8.0),
+              height: height / 2.5,
+              child: ContainedTabBarView(
+                tabBarProperties: TabBarProperties(
+                    width: width,
+                    indicatorSize: TabBarIndicatorSize.tab,
+                    indicatorColor: AppColors.tWhiteColor),
+                tabs: [
+                  Text('لمحه', style: AppTextStyle.bodyWhiteFontWith16),
+                  Text('مراجعات', style: AppTextStyle.bodyWhiteFontWith16),
+                ],
+                views: [
+                  gymInfo(context),
+                  ratingWidget(context),
+                ],
               ),
-              Container(
-                padding: const EdgeInsets.all(8.0),
-                // width: width,
-                height: height / 2,
-                child: ContainedTabBarView(
-                  tabBarProperties: TabBarProperties(
-                      width: width,
-                      indicatorSize: TabBarIndicatorSize.tab,
-                      indicatorColor: AppColors.tWhiteColor),
-                  tabs: const [
-                    Text('لمحه',
-                        style: TextStyle(
-                          color: AppColors.tWhiteColor,
-                        )),
-                    Text('مراجعات',
-                        style: TextStyle(
-                          color: AppColors.tWhiteColor,
-                        )),
-                  ],
-                  views: [
-                    gymInfo(context),
-                    ratingWidget(context),
-                  ],
-                ),
+            ),
+            SizedBox(
+              height: height / 15,
+              width: width * 0.9,
+              child: defaultButton(
+                size: width * .05,
+                onTap: () {
+                  Navigator.pushNamed(context, 'SubtypeScreen');
+                },
+                text: 'إكمال الحجز',
+                radius: 10,
               ),
-              SizedBox(
-                height: height / 15,
-                width: double.infinity,
-                child: defaultButton(
-                  size: width * .05,
-                  onTap: () {},
-                  text: 'إكمال الحجز',
-                  radius: 10,
-                ),
-              ),
-            ]),
-          ),
+            ),
+          ]),
         ),
       ),
     );
