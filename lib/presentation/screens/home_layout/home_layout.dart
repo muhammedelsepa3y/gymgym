@@ -39,32 +39,44 @@ class _HomeLayoutState extends State<HomeLayout> {
               key: _bottomNavigationKey,
               index: cubit.currentIndex,
               height: 60,
-              items:  <Widget>[
+              items: <Widget>[
                 Icon(
                   Icons.home_outlined,
                   size: 30,
-                  color:  cubit.currentIndex!=0? AppColors.pDarkColor:Colors.white,
+                  color: cubit.currentIndex != 0
+                      ? AppColors.pDarkColor
+                      : Colors.white,
                 ),
-                Icon(Icons.search, size: 30, color:  cubit.currentIndex!=1? AppColors.pDarkColor:Colors.white),
+                Icon(Icons.search,
+                    size: 30,
+                    color: cubit.currentIndex != 1
+                        ? AppColors.pDarkColor
+                        : Colors.white),
                 Icon(Icons.signal_cellular_alt_outlined,
-                    size: 30, color:  (cubit.currentIndex!=2) ? AppColors.pDarkColor:Colors.white),
-                Icon(Icons.person_2_outlined, size: 30, color: (cubit.currentIndex!=3) ? AppColors.pDarkColor:Colors.white),
+                    size: 30,
+                    color: (cubit.currentIndex != 2)
+                        ? AppColors.pDarkColor
+                        : Colors.white),
+                Icon(Icons.person_2_outlined,
+                    size: 30,
+                    color: (cubit.currentIndex != 3)
+                        ? AppColors.pDarkColor
+                        : Colors.white),
               ],
               color: AppColors.pRedAccentColor,
               buttonBackgroundColor: AppColors.pRedAccentColor,
-              backgroundColor: AppColors.pDarkColor,
+              backgroundColor: AppColors.blackColor,
               animationCurve: Curves.bounceOut,
               onTap: (index) {
                 setState(() {
-                  cubit.currentIndex=index;
+                  cubit.currentIndex = index;
                 });
               },
               letIndexChange: (index) => true,
             ),
             body: Scaffold(
               body: cubit.screenName[cubit.currentIndex],
-            )
-        );
+            ));
       },
     );
   }

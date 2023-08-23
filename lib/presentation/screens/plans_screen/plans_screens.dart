@@ -11,40 +11,45 @@ class PlansScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return  Scaffold(
-       body: SafeArea(
-         child: Column(
-           children: [
-             Image.asset(
-               AppAssets.planPicture,
-               height: 400.0,
-               width: 400.0,
-             ),
-             SizedBox(
-               height: 15.0,
-             ),
-             TextFormFieldPlan(),
-             TextFormFieldPlan(),
-             SizedBox(
-               height: 80.0,
-             ),
-             Padding(
-               padding: const EdgeInsets.symmetric(horizontal: 14.0),
-               child: defaultButton(
-                 onTap: ()
-                 {
-                   ///TODO: Using Router After Understand Structure Of Project
-                   Navigator.push(context, MaterialPageRoute(builder: (context)=>DetailsPlanScreen(),),);
-                 },
-                 radius: 12.0,
-                 size: 20.0,
-                 text: '+ اضافة خطة جديدة!',
-               ),
-             ),
-           ],
-         ),
-       ),
+    return Scaffold(
+      body: SafeArea(
+        child: SingleChildScrollView(
+          child: Column(
+            children: [
+              Image.asset(
+                AppAssets.planPicture,
+                height: 400.0,
+                width: 400.0,
+              ),
+              SizedBox(
+                height: 15.0,
+              ),
+              TextFormFieldPlan(),
+              TextFormFieldPlan(),
+              SizedBox(
+                height: 40.0,
+              ),
+              Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 14.0),
+                child: defaultButton(
+                  onTap: () {
+                    ///TODO: Using Router After Understand Structure Of Project
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => DetailsPlanScreen(),
+                      ),
+                    );
+                  },
+                  radius: 12.0,
+                  size: 20.0,
+                  text: '+ اضافة خطة جديدة!',
+                ),
+              ),
+            ],
+          ),
+        ),
+      ),
     );
   }
 }
-

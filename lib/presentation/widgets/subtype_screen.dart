@@ -4,7 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:gymgym/constants/AppColors.dart';
 import 'package:gymgym/constants/AppTextStyle.dart';
 import 'package:gymgym/presentation/widgets/component.dart';
-import 'package:gymgym/presentation/widgets/custom_appbar.dart';
+import 'package:gymgym/presentation/widgets/shared/custom_appbar.dart';
 
 class SubtypeScreen extends StatefulWidget {
   static String id = "SubtypeScreen";
@@ -35,7 +35,7 @@ class _SubtypeScreenState extends State<SubtypeScreen> {
     var width = MediaQuery.of(context).size.width;
 
     return Padding(
-      padding: EdgeInsets.all(height * 0.02),
+      padding: EdgeInsets.all(height * 0.012),
       child: Scaffold(
         appBar: CustomAppbar(title: 'نوع الاشتراك'),
         body: Column(
@@ -108,7 +108,7 @@ class _SubtypeScreenState extends State<SubtypeScreen> {
               },
               separatorBuilder: (context, index) {
                 return SizedBox(
-                  height: height * 0.03,
+                  height: height * 0.025,
                 );
               },
               itemCount: subtypeModel.length,

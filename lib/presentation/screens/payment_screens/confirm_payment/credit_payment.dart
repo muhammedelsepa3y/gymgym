@@ -7,7 +7,7 @@ import 'package:gymgym/constants/AppColors.dart';
 import 'package:gymgym/constants/AppTextStyle.dart';
 import 'package:gymgym/presentation/screens/payment_screens/confirm_payment/credit_logic.dart';
 import 'package:gymgym/presentation/widgets/component.dart';
-import 'package:gymgym/presentation/widgets/custom_appbar.dart';
+import 'package:gymgym/presentation/widgets/shared/custom_appbar.dart';
 
 class CreditPaymentScreen extends StatefulWidget {
   static String id = "CreditPaymentScreen";

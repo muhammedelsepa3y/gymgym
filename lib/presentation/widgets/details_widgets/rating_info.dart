@@ -62,7 +62,7 @@ Widget ratingWidget(BuildContext context) {
                     height: height / 80,
                   ),
                   Text('هذا مجرد نص تجريبي فقط',
-                      style: AppTextStyle.bodyWhiteFont),
+                      style: AppTextStyle.bodyWhiteFontWith14),
                 ],
               ),
             ),

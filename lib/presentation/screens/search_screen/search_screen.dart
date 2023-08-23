@@ -17,12 +17,15 @@ class SearchScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       body: SafeArea(
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            SearchBar(),
-            const SizedBox(
-              height: 10.0,
+
+        child: SingleChildScrollView(
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              SearchBar(),
+              const SizedBox(
+                height: 10.0,
+
             ),
             SearchText(
               text: 'أفضل عروض',
@@ -50,27 +53,21 @@ class SearchScreen extends StatelessWidget {
                   DefaultAppContainer(),
                 ],
               ),
-            ),
-            const SizedBox(
-              height: 10.0,
-            ),
-            InkWell(
-              onTap: () {},
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.end,
-                children: [
-                  Text(
-                    'المزيد',
-                    style: GoogleFonts.cairo(
-                      fontSize: 15.0,
+              SearchText(
+                text: 'أفضل عروض',
+                function: () {
+                  ///TODO: Using Router After Understand Structure Of Project
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => BestOffer(),
                     ),
-                  ),
-                  SvgPicture.asset(
-                    AppAssets.doubleLeftIcon,
-                    height: 20,
-                  ),
-                ],
+                  );
+                },
               ),
+
+              const SizedBox(
+
             ),
             SearchText(
               text: 'الأكثر زيارة',
@@ -97,9 +94,73 @@ class SearchScreen extends StatelessWidget {
                   ),
                   DefaultAppContainer(),
                 ],
+
               ),
-            ),
-          ],
+              const Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 8.0),
+                child: Row(
+                  children: [
+                    ItemCard(),
+                    SizedBox(
+                      width: 20.0,
+                    ),
+                    ItemCard(),
+                  ],
+                ),
+              ),
+              const SizedBox(
+                height: 10.0,
+              ),
+              InkWell(
+                onTap: () {},
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.end,
+                  children: [
+                    Text(
+                      'المزيد',
+                      style: GoogleFonts.cairo(
+                        fontSize: 15.0,
+                      ),
+                    ),
+                    SvgPicture.asset(
+                      AppAssets.doubleLeftIcon,
+                      height: 20,
+                    ),
+                  ],
+                ),
+              ),
+              const SizedBox(
+                height: 20.0,
+              ),
+              SearchText(
+                text: 'الأكثر زيارة',
+                function: () {
+                  ///TODO: Using Router After Understand Structure Of Project
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => MostVisited(),
+                    ),
+                  );
+                },
+              ),
+              const SizedBox(
+                height: 8.0,
+              ),
+              const Padding(
+                padding: EdgeInsets.symmetric(horizontal: 8.0),
+                child: Row(
+                  children: [
+                    ItemCard(),
+                    SizedBox(
+                      width: 20.0,
+                    ),
+                    ItemCard(),
+                  ],
+                ),
+              ),
+            ],
+          ),
         ),
       ),
     );
@@ -179,7 +240,7 @@ class _SearchBarState extends State<SearchBar> {
                           Row(
                             children: [
                               TextForDialogSearchScreen(
-                                text:'من ',
+                                text: 'من ',
                                 fontStyle: 14.0,
                                 fontWeight: FontWeight.w700,
                               ),
@@ -190,19 +251,16 @@ class _SearchBarState extends State<SearchBar> {
                                 text: '5 ',
                                 fontStyle: 14.0,
                                 fontWeight: FontWeight.w700,
-
                               ),
                               TextForDialogSearchScreen(
                                 text: 'الي ',
                                 fontStyle: 14.0,
                                 fontWeight: FontWeight.w700,
-
                               ),
                               TextForDialogSearchScreen(
                                 text: '100 ',
                                 fontStyle: 14.0,
                                 fontWeight: FontWeight.w700,
-
                               ),
                             ],
                           ),
@@ -213,7 +271,6 @@ class _SearchBarState extends State<SearchBar> {
                             fontStyle: 16.0,
                             text: 'نوع الأشتراك',
                             fontWeight: FontWeight.w900,
-
                           ),
                           SizedBox(
                             height: 10.0,

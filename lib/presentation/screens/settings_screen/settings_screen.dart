@@ -11,37 +11,66 @@ class SettingsScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return  Scaffold(
-      backgroundColor: AppColors.pDarkColor,
+    return Scaffold(
+      backgroundColor: AppColors.blackColor,
       body: Padding(
         padding: const EdgeInsets.all(8.0),
         child: Container(
           margin: const EdgeInsets.symmetric(horizontal: 10, vertical: 30),
-
           child: Column(
             mainAxisAlignment: MainAxisAlignment.start,
             crossAxisAlignment: CrossAxisAlignment.stretch,
             children: [
               BuildIntroTexts(
                 headerMessage: 'أهلا بك user في جيم جيم!',
-                subMessage:
-                'إستمتع معنا بأفضل خدمات اللياقة البدنية',
+                subMessage: 'إستمتع معنا بأفضل خدمات اللياقة البدنية',
               ),
-              const SizedBox(height: 20,),
-              SettingComponent(title: "الحساب",prefixIcon: Icons.arrow_forward_ios,suffixIcon: Icons.person,onTap: (){Navigator.pushNamed(context, ProfileScreen.id);},),
-              const SizedBox(height: 20,),
-
-              SettingComponent(title: "المفضلة",prefixIcon: Icons.arrow_forward_ios,suffixIcon: Icons.favorite_border_outlined,onTap: (){Navigator.pushNamed(context, FavouriteScreen.id);},),
-              const SizedBox(height: 20,),
-
-              SettingComponent(title: "الدعم الفني",prefixIcon: Icons.arrow_forward_ios,suffixIcon: Icons.call,),
-              const SizedBox(height: 20,),
-
-              SettingComponent(title: "الإعدادات",prefixIcon: Icons.arrow_forward_ios,suffixIcon: Icons.settings_outlined,),
-              const SizedBox(height: 20,),
-
-              SettingComponent(title: "تقييم التطبيق",prefixIcon: Icons.arrow_forward_ios,suffixIcon: Icons.star_outline_rounded,),
-
+              const SizedBox(
+                height: 20,
+              ),
+              SettingComponent(
+                title: "الحساب",
+                prefixIcon: Icons.arrow_forward_ios,
+                suffixIcon: Icons.person,
+                onTap: () {
+                  Navigator.pushNamed(context, ProfileScreen.id);
+                },
+              ),
+              const SizedBox(
+                height: 20,
+              ),
+              SettingComponent(
+                title: "المفضلة",
+                prefixIcon: Icons.arrow_forward_ios,
+                suffixIcon: Icons.favorite_border_outlined,
+                onTap: () {
+                  Navigator.pushNamed(context, FavouriteScreen.id);
+                },
+              ),
+              const SizedBox(
+                height: 20,
+              ),
+              SettingComponent(
+                title: "الدعم الفني",
+                prefixIcon: Icons.arrow_forward_ios,
+                suffixIcon: Icons.call,
+              ),
+              const SizedBox(
+                height: 20,
+              ),
+              SettingComponent(
+                title: "الإعدادات",
+                prefixIcon: Icons.arrow_forward_ios,
+                suffixIcon: Icons.settings_outlined,
+              ),
+              const SizedBox(
+                height: 20,
+              ),
+              SettingComponent(
+                title: "تقييم التطبيق",
+                prefixIcon: Icons.arrow_forward_ios,
+                suffixIcon: Icons.star_outline_rounded,
+              ),
             ],
           ),
         ),

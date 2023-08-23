@@ -3,7 +3,7 @@ import 'package:gymgym/constants/AppAssets.dart';
 import 'package:gymgym/constants/AppColors.dart';
 import 'package:gymgym/constants/AppTextStyle.dart';
 import 'package:gymgym/presentation/widgets/component.dart';
-import 'package:gymgym/presentation/widgets/custom_appbar.dart';
+import 'package:gymgym/presentation/widgets/shared/custom_appbar.dart';
 
 class PayWayScreen extends StatefulWidget {
   static String id = "PayWayScreen";
