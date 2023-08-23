@@ -4,6 +4,7 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:gymgym/constants/AppAssets.dart';
 import 'package:gymgym/presentation/screens/search_screen/best_offer.dart';
 import 'package:gymgym/presentation/screens/search_screen/most_visited.dart';
+import 'package:gymgym/presentation/widgets/home_componant.dart';
 import 'package:gymgym/presentation/widgets/plan_widgets/linked_lable_radio.dart';
 import 'package:gymgym/presentation/widgets/plan_widgets/text_for_daliog.dart';
 import 'package:gymgym/presentation/widgets/search_widgets/item_card.dart';
@@ -38,15 +39,15 @@ class SearchScreen extends StatelessWidget {
             const SizedBox(
               height: 18.0,
             ),
-            const Padding(
+             const Padding(
               padding: const EdgeInsets.symmetric(horizontal: 8.0),
               child: Row(
                 children: [
-                  ItemCard(),
+                  DefaultAppContainer(),
                   SizedBox(
                     width: 20.0,
                   ),
-                  ItemCard(),
+                  DefaultAppContainer(),
                 ],
               ),
             ),
@@ -71,9 +72,6 @@ class SearchScreen extends StatelessWidget {
                 ],
               ),
             ),
-            const SizedBox(
-              height: 20.0,
-            ),
             SearchText(
               text: 'الأكثر زيارة',
               function: () {
@@ -93,11 +91,11 @@ class SearchScreen extends StatelessWidget {
               padding: EdgeInsets.symmetric(horizontal: 8.0),
               child: Row(
                 children: [
-                  ItemCard(),
+                  DefaultAppContainer(),
                   SizedBox(
                     width: 20.0,
                   ),
-                  ItemCard(),
+                  DefaultAppContainer(),
                 ],
               ),
             ),
