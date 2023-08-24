@@ -37,8 +37,8 @@ class _WelcomeUserScreenState extends State<WelcomeUserScreen> with TickerProvid
     super.initState();
 
     _leftToCenterController = AnimationController(duration: Duration(seconds: 1), vsync: this);
-    _centerToBottomController = AnimationController(duration: Duration(seconds: 1), vsync: this);
-    _bottomToCenterController = AnimationController(duration: Duration(seconds: 1), vsync: this);
+    _centerToBottomController = AnimationController(duration: Duration(milliseconds: 600), vsync: this);
+    _bottomToCenterController = AnimationController(duration: Duration(milliseconds: 600), vsync: this);
 
     _leftToCenterAnimation = Tween<Offset>(
         begin: Offset(-1,0),
@@ -53,7 +53,7 @@ class _WelcomeUserScreenState extends State<WelcomeUserScreen> with TickerProvid
     _currentAnimation = _leftToCenterAnimation;
     _centerToBottomAnimation = Tween<Offset>(
         begin: Offset(0,0),
-        end: Offset(0,1)
+        end: Offset(0,0.7)
     ).animate(_centerToBottomController)..addListener(() {
       setState(() {
         if(_centerToBottomController.isCompleted){

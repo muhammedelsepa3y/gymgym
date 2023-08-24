@@ -1,20 +1,25 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/svg.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:gymgym/constants/AppColors.dart';
+import 'package:gymgym/constants/AppTextStyle.dart';
 
-class SettingComponent extends StatefulWidget {
+import '../../constants/AppAssets.dart';
+import '../../constants/size_config.dart';
+
+class CustomSettingComponent extends StatefulWidget {
   String title;
-  IconData? prefixIcon;
-  IconData? suffixIcon;
+  String prefixIcon;
+  String? suffixIcon;
   void Function()? onTap;
 
-   SettingComponent({required this.title,required this.prefixIcon,required this.suffixIcon,this.onTap,super.key});
+  CustomSettingComponent({required this.title,required this.prefixIcon, this.suffixIcon,this.onTap,super.key});
 
   @override
-  State<SettingComponent> createState() => _SettingComponentState();
+  State<CustomSettingComponent> createState() => _CustomSettingComponentState();
 }
 
-class _SettingComponentState extends State<SettingComponent> {
+class _CustomSettingComponentState extends State<CustomSettingComponent> {
   @override
   Widget build(BuildContext context) {
     var mediaQuery=MediaQuery.sizeOf(context);
@@ -38,28 +43,26 @@ class _SettingComponentState extends State<SettingComponent> {
           children: [
             Row(
               children: [
-                 Icon(
-                  widget.suffixIcon,
-                  color: Colors.white,
-                  size: 25,
+                SvgPicture.asset(
+                  widget.prefixIcon ,
+                  height: 24 * SizeConfig.verticalBlock,
+                  width: 24 * SizeConfig.horizontalBlock,
                 ),
+
                 SizedBox(
                   width: mediaQuery.width * .02,
                 ),
                 Text(
                   widget.title,
-                  style: GoogleFonts.cairo(
-                    fontSize: 20.0,
-                    fontWeight: FontWeight.w500,
-                    color: Colors.white,
-                  ),
+                  style: AppTextStyle.bodyWhiteFontWith14,
                 ),
               ],
             ),
-             Icon( widget.prefixIcon,
-              color: Colors.white,
-              size: 20,
-            ),
+            widget.suffixIcon==null?Container():SvgPicture.asset(
+              widget.suffixIcon! ,
+              height: 21 * SizeConfig.verticalBlock,
+              width: 12 * SizeConfig.horizontalBlock,
+            )
           ],
         ),
       ),

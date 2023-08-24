@@ -28,11 +28,11 @@ class _CreditPaymentScreenState extends State<CreditPaymentScreen> {
     var width = MediaQuery.of(context).size.width;
     return Scaffold(
       appBar: CustomAppbar(title: 'تأكيد الدفع '),
-      body: SingleChildScrollView(
-        child: Padding(
-          padding: EdgeInsets.all(height * 0.01),
-          child: Directionality(
-            textDirection: TextDirection.ltr,
+      body: Padding(
+        padding: EdgeInsets.all(height * 0.01),
+        child: Directionality(
+          textDirection: TextDirection.ltr,
+          child: SingleChildScrollView(
             child: Column(
               children: [
                 Center(

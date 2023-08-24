@@ -10,6 +10,9 @@ import 'package:gymgym/presentation/widgets/plan_widgets/text_for_daliog.dart';
 import 'package:gymgym/presentation/widgets/search_widgets/item_card.dart';
 import 'package:gymgym/presentation/widgets/search_widgets/search_text.dart';
 
+import '../../../constants/size_config.dart';
+import '../home_screen/behind_you_screen.dart';
+
 class SearchScreen extends StatelessWidget {
   const SearchScreen({super.key});
 
@@ -19,39 +22,15 @@ class SearchScreen extends StatelessWidget {
       body: SafeArea(
 
         child: SingleChildScrollView(
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              SearchBar(),
-              const SizedBox(
-                height: 10.0,
+          child: Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 8.0),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                SearchBar(),
+                const SizedBox(
+                  height: 10.0,
 
-            ),
-            SearchText(
-              text: 'أفضل عروض',
-              function: () {
-                ///TODO: Using Router After Understand Structure Of Project
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(
-                    builder: (context) => BestOffer(),
-                  ),
-                );
-              },
-            ),
-            const SizedBox(
-              height: 18.0,
-            ),
-             const Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 8.0),
-              child: Row(
-                children: [
-                  DefaultAppContainer(),
-                  SizedBox(
-                    width: 20.0,
-                  ),
-                  DefaultAppContainer(),
-                ],
               ),
               SearchText(
                 text: 'أفضل عروض',
@@ -65,73 +44,28 @@ class SearchScreen extends StatelessWidget {
                   );
                 },
               ),
-
               const SizedBox(
-
-            ),
-            SearchText(
-              text: 'الأكثر زيارة',
-              function: () {
-                ///TODO: Using Router After Understand Structure Of Project
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(
-                    builder: (context) => MostVisited(),
-                  ),
-                );
-              },
-            ),
-            const SizedBox(
-              height: 8.0,
-            ),
-            const Padding(
-              padding: EdgeInsets.symmetric(horizontal: 8.0),
-              child: Row(
-                children: [
-                  DefaultAppContainer(),
-                  SizedBox(
-                    width: 20.0,
-                  ),
-                  DefaultAppContainer(),
-                ],
-
+                height: 18.0,
               ),
-              const Padding(
+               const Padding(
                 padding: const EdgeInsets.symmetric(horizontal: 8.0),
                 child: Row(
                   children: [
-                    ItemCard(),
+                    DefaultAppContainer(),
                     SizedBox(
                       width: 20.0,
                     ),
-                    ItemCard(),
+                    DefaultAppContainer(),
                   ],
                 ),
-              ),
-              const SizedBox(
-                height: 10.0,
-              ),
-              InkWell(
-                onTap: () {},
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.end,
-                  children: [
-                    Text(
-                      'المزيد',
-                      style: GoogleFonts.cairo(
-                        fontSize: 15.0,
-                      ),
-                    ),
-                    SvgPicture.asset(
-                      AppAssets.doubleLeftIcon,
-                      height: 20,
-                    ),
-                  ],
+               ),
+                MoreHomeButton(routeName: BestOffer.id),
+
+
+                const SizedBox(
+                  height: 10.0,
                 ),
-              ),
-              const SizedBox(
-                height: 20.0,
-              ),
+
               SearchText(
                 text: 'الأكثر زيارة',
                 function: () {
@@ -151,15 +85,24 @@ class SearchScreen extends StatelessWidget {
                 padding: EdgeInsets.symmetric(horizontal: 8.0),
                 child: Row(
                   children: [
-                    ItemCard(),
+                    DefaultAppContainer(),
                     SizedBox(
                       width: 20.0,
                     ),
-                    ItemCard(),
+                    DefaultAppContainer(),
                   ],
+
+                ),),
+                MoreHomeButton(routeName: MostVisited.id),
+
+                const SizedBox(
+                  height: 10.0,
                 ),
-              ),
-            ],
+
+
+
+              ],
+            ),
           ),
         ),
       ),
@@ -179,6 +122,8 @@ class SearchBar extends StatefulWidget {
 
 class _SearchBarState extends State<SearchBar> {
   int? _selectedItem;
+  TextEditingController _priceFrom=TextEditingController();
+  TextEditingController _priceTo=TextEditingController();
 
   @override
   Widget build(BuildContext context) {
@@ -223,6 +168,7 @@ class _SearchBarState extends State<SearchBar> {
                 builder: (BuildContext context) {
                   ///TODO: DO THE RATIO WHEN YOU USING BLOC
                   return AlertDialog(
+                    backgroundColor: Color(0xff303030),
                     actions: [
                       Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
@@ -231,7 +177,7 @@ class _SearchBarState extends State<SearchBar> {
                             height: 15.0,
                           ),
                           TextForDialogSearchScreen(
-                            text: 'السعر(الجنية)',
+                            text: 'السعر([جنيه])',
                             fontStyle: 14.0,
                           ),
                           SizedBox(
@@ -247,20 +193,57 @@ class _SearchBarState extends State<SearchBar> {
                               SizedBox(
                                 width: 5.0,
                               ),
-                              TextForDialogSearchScreen(
-                                text: '5 ',
-                                fontStyle: 14.0,
-                                fontWeight: FontWeight.w700,
+                              SizedBox(
+                                width: 60,
+                                child: TextField(
+
+                                  controller: _priceFrom,
+                                  keyboardType: TextInputType.number,
+                                  textAlign: TextAlign.center,
+
+                                  decoration: InputDecoration(counterText: '',
+                                    hintText: '',
+                                    border: OutlineInputBorder(
+                                      borderSide: BorderSide(
+                                          color: Colors.white, width: 1.0),
+                                      borderRadius: BorderRadius.circular(
+                                          10.0),
+                                      gapPadding: 8,
+
+                                    ),
+                                    contentPadding: EdgeInsets.all(
+                                        10 * SizeConfig.horizontalBlock),
+                                  ),
+                                ),
                               ),
+
                               TextForDialogSearchScreen(
                                 text: 'الي ',
                                 fontStyle: 14.0,
                                 fontWeight: FontWeight.w700,
                               ),
-                              TextForDialogSearchScreen(
-                                text: '100 ',
-                                fontStyle: 14.0,
-                                fontWeight: FontWeight.w700,
+                              SizedBox(
+                                width: 60,
+                                child: TextField(
+
+                                  controller: _priceTo,
+                                  keyboardType: TextInputType.number,
+                                  textAlign: TextAlign.center,
+
+                                  decoration: InputDecoration(
+                                    hintText: '',
+                                    border: OutlineInputBorder(
+                                      borderSide: BorderSide(
+                                          color: Colors.white, width: 1.0),
+                                      borderRadius: BorderRadius.circular(
+                                          10.0),
+                                      gapPadding: 8,
+
+                                    ),
+                                    contentPadding: EdgeInsets.all(
+                                        10 * SizeConfig.horizontalBlock),
+                                  ),
+                                ),
                               ),
                             ],
                           ),
@@ -277,47 +260,54 @@ class _SearchBarState extends State<SearchBar> {
                           ),
                           RadioListTile(
                             value: 0,
-                            fillColor: MaterialStateProperty.all(Colors.white),
                             groupValue: _selectedItem,
                             onChanged: (value) {
                               setState(() {
                                 _selectedItem = value;
                               });
                             },
-                            title: Text("R1"),
+                            title: Text("جلسة واحدة")
                           ),
                           RadioListTile(
                             value: 1,
-                            fillColor: MaterialStateProperty.all(Colors.white),
                             groupValue: _selectedItem,
                             onChanged: (value) {
                               setState(() {
                                 _selectedItem = value;
                               });
                             },
-                            title: Text("R2"),
+                            title: Text("شهر"),
                           ),
                           RadioListTile(
                             value: 2,
-                            fillColor: MaterialStateProperty.all(Colors.white),
                             groupValue: _selectedItem,
                             onChanged: (value) {
                               setState(() {
                                 _selectedItem = value;
                               });
                             },
-                            title: Text("R3"),
+                            title: Text("3 أشهر"),
                           ),
                           RadioListTile(
-                            value: 4,
-                            fillColor: MaterialStateProperty.all(Colors.white),
+                            value: 3,
                             groupValue: _selectedItem,
                             onChanged: (value) {
                               setState(() {
                                 _selectedItem = value;
                               });
                             },
-                            title: Text("R4"),
+                            title: Text("6 أشهر"),
+                          ),
+                          RadioListTile(
+
+                            value: 4,
+                            groupValue: _selectedItem,
+                            onChanged: (value) {
+                              setState(() {
+                                _selectedItem = value;
+                              });
+                            },
+                            title: Text("سنة"),
                           ),
                         ],
                       ),

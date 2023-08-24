@@ -10,44 +10,46 @@ Widget gymInfo(BuildContext context) {
     padding: EdgeInsets.only(
       top: height / 40,
     ),
-    child: Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
-      Text('نوع', style: AppTextStyle.bodyWhiteFontWith16),
-      SizedBox(
-        height: height / 110,
-      ),
-      Text('هذا مجرد نص تجريبي فقط', style: AppTextStyle.bodyGreyFont),
-      SizedBox(
-        height: height / 110,
-      ),
-      Text('العنوان', style: AppTextStyle.bodyWhiteFontWith16),
-      SizedBox(
-        height: height / 110,
-      ),
-      Text('هذا مجرد نص تجريبي فقط',
-          style: TextStyle(
-            color: AppColors.tGreyColor,
-            fontSize: height * 0.015,
-          )),
-      Text('العروض', style: AppTextStyle.bodyWhiteFontWith16),
-      SizedBox(
-        height: height / 110,
-      ),
-      Text('هذا مجرد نص تجريبي فقط',
-          style: TextStyle(
-            color: AppColors.tGreyColor,
-            fontSize: height * 0.015,
-          )),
-      Text('خدمات', style: AppTextStyle.bodyWhiteFontWith16),
-      Text('هذا مجرد نص تجريبي فقط',
-          style: TextStyle(
-            color: AppColors.tGreyColor,
-            fontSize: height * 0.015,
-          )),
-      Text('هذا مجرد نص تجريبي فقط',
-          style: TextStyle(
-            color: AppColors.tGreyColor,
-            fontSize: height * 0.015,
-          )),
-    ]),
+    child: SingleChildScrollView(
+      child: Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
+        Text('نوع', style: AppTextStyle.bodyWhiteFontWith16),
+        SizedBox(
+          height: height / 110,
+        ),
+        Text('هذا مجرد نص تجريبي فقط', style: AppTextStyle.bodyGreyFont),
+        SizedBox(
+          height: height / 110,
+        ),
+        Text('العنوان', style: AppTextStyle.bodyWhiteFontWith16),
+        SizedBox(
+          height: height / 110,
+        ),
+        Text('هذا مجرد نص تجريبي فقط',
+            style: TextStyle(
+              color: AppColors.tGreyColor,
+              fontSize: height * 0.015,
+            )),
+        Text('العروض', style: AppTextStyle.bodyWhiteFontWith16),
+        SizedBox(
+          height: height / 110,
+        ),
+        Text('هذا مجرد نص تجريبي فقط',
+            style: TextStyle(
+              color: AppColors.tGreyColor,
+              fontSize: height * 0.015,
+            )),
+        Text('خدمات', style: AppTextStyle.bodyWhiteFontWith16),
+        Text('هذا مجرد نص تجريبي فقط',
+            style: TextStyle(
+              color: AppColors.tGreyColor,
+              fontSize: height * 0.015,
+            )),
+        Text('هذا مجرد نص تجريبي فقط',
+            style: TextStyle(
+              color: AppColors.tGreyColor,
+              fontSize: height * 0.015,
+            )),
+      ]),
+    ),
   );
 }

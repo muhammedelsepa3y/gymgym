@@ -15,6 +15,9 @@ class CustomSVGLoad{
       SvgAssetLoader(AppAssets.favourite),
       SvgAssetLoader(AppAssets.doubleArrowLeft),
       SvgAssetLoader(AppAssets.location),
+      SvgAssetLoader(AppAssets.politicsIcon),
+      SvgAssetLoader(AppAssets.arrowButtonIcon),
+      SvgAssetLoader(AppAssets.logoutIcon),
 
 
     ];

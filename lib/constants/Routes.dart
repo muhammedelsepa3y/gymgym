@@ -10,7 +10,9 @@ import 'package:gymgym/presentation/screens/search_screen/best_offer.dart';
 import 'package:gymgym/presentation/screens/login_screen/login_screen.dart';
 import 'package:gymgym/presentation/screens/phone_confirmation/phone_enter_confirm.dart';
 import 'package:gymgym/presentation/screens/register_screen/register_screen.dart';
+import 'package:gymgym/presentation/screens/settings_screen/app_settings_Screen.dart';
 import 'package:gymgym/presentation/screens/splash_screen/splash_screen.dart';
+import 'package:gymgym/presentation/screens/technical_support_screen/technical_support_screen.dart';
 import 'package:gymgym/presentation/screens/welcome_screens/welcome_after_auth_screen.dart';
 import 'package:gymgym/presentation/screens/welcome_screens/welcome_before_auth_screen.dart';
 
@@ -52,5 +54,7 @@ class AppRoutes {
     CreditPaymentScreen.id: (context) => CreditPaymentScreen(),
     WalletPaymentScreen.id: (context) => WalletPaymentScreen(),
     SuccessPaymentScreen.id: (context) => SuccessPaymentScreen(),
+    AppSettingsScreen.id: (context) => const AppSettingsScreen(),
+    TechnicalSupport.id: (context) => const TechnicalSupport(),
   };
 }

@@ -16,11 +16,13 @@ class InputField extends StatefulWidget {
   bool? readOnly;
   bool isShown = false;
   Widget? suffix;
+  int maxLines=1;
 
   InputField(
       {this.keyboardType,
       this.textDirection,
       this.validator,
+        this.maxLines=1,
       this.hintText,
       this.prefixIcon,
       this.obscureText=false,
@@ -40,6 +42,7 @@ class _InputFieldState extends State<InputField> {
       readOnly: widget.readOnly ?? false,
       obscureText: widget.obscureText ,
       controller: widget.controller,
+      maxLines: widget.maxLines,
       keyboardType: widget.keyboardType,
       style: AppTextStyle.bodyWhiteFontWith16,
       textDirection: widget.textDirection ?? TextDirection.ltr,
@@ -48,17 +51,17 @@ class _InputFieldState extends State<InputField> {
         hintText: widget.hintText,
         hintStyle: AppTextStyle.inputFieldTextStyle,
 
-        prefixIcon: Padding(
+        prefixIcon:widget.prefixIcon!=null? Padding(
           padding: EdgeInsets.symmetric(
             horizontal: 10 * SizeConfig.horizontalBlock,
             vertical: 10 * SizeConfig.horizontalBlock,
           ),
           child: SvgPicture.asset(
-            widget.prefixIcon ?? AppAssets.mailIcon,
+            widget.prefixIcon!,
             height: 25 * SizeConfig.verticalBlock,
             width: 25 * SizeConfig.horizontalBlock,
           ),
-        ),
+        ):null,
         suffixIcon: widget.suffix??null,
 
         border: OutlineInputBorder(

@@ -18,6 +18,9 @@ class AppAssets {
   static const String user_nameIcon = 'assets/icons/user_name.svg';
   static const String welcomeImage = 'assets/images/welcome.png';
   static const String mapIcon = 'assets/icons/map.svg';
+  static const String arrowButtonIcon= 'assets/icons/arrow.svg';
+  static const String politicsIcon= 'assets/icons/politics.svg';
+  static const String logoutIcon= 'assets/icons/logout.svg';
 
   static const String star = 'assets/icons/star.svg';
   static const String favourite = 'assets/icons/favourite.svg';

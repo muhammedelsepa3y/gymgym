@@ -24,8 +24,8 @@ Widget defaultButton({
               colors: color != null
                   ? [color, color] // Use the provided color if available
                   : [
-                      AppColors.pDarkColor,
-                      AppColors.pRedAccentColor,
+                      AppColors.redDark,
+                      AppColors.red,
                     ])),
       width: width,
       child: MaterialButton(

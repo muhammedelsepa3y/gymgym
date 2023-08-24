@@ -3,8 +3,11 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:gymgym/constants/AppColors.dart';
 import 'package:gymgym/presentation/screens/favourite_screen/favourite_screen.dart';
 import 'package:gymgym/presentation/screens/profile_screen/profile_screen.dart';
+import 'package:gymgym/presentation/screens/settings_screen/app_settings_Screen.dart';
 import 'package:gymgym/presentation/widgets/intro_texts.dart';
 import 'package:gymgym/presentation/widgets/settings_componant.dart';
+
+import '../technical_support_screen/technical_support_screen.dart';
 
 class SettingsScreen extends StatelessWidget {
   const SettingsScreen({super.key});
@@ -54,6 +57,9 @@ class SettingsScreen extends StatelessWidget {
                 title: "الدعم الفني",
                 prefixIcon: Icons.arrow_forward_ios,
                 suffixIcon: Icons.call,
+                onTap: () {
+                  Navigator.pushNamed(context, TechnicalSupport.id);
+                },
               ),
               const SizedBox(
                 height: 20,
@@ -62,6 +68,9 @@ class SettingsScreen extends StatelessWidget {
                 title: "الإعدادات",
                 prefixIcon: Icons.arrow_forward_ios,
                 suffixIcon: Icons.settings_outlined,
+                onTap: () {
+                  Navigator.pushNamed(context, AppSettingsScreen.id);
+                },
               ),
               const SizedBox(
                 height: 20,
