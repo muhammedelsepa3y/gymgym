@@ -55,6 +55,7 @@ class WelcomeStrangerScreen extends StatelessWidget {
                   ),
                   defaultButton(
                     onTap: () {
+
                       Navigator.pushNamed(context, RegisterScreen.id);
                     },
                     text: 'إنضم الآن',

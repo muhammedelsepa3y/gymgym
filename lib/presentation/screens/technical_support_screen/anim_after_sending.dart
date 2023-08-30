@@ -73,7 +73,7 @@ class _AnimationAfterSendingScreenState extends State<AnimationAfterSending> wit
                 ),
                 SizedBox(height: 15*SizeConfig.verticalBlock,),
                 SlideFadeTransition(
-                  animationDuration: Duration(milliseconds: 1500),
+                  animationDuration: Duration(milliseconds: 1000),
                   delayStart: Duration(milliseconds: 500),
                   offset: 2.5,
                   direction: Direction.horizontal,
