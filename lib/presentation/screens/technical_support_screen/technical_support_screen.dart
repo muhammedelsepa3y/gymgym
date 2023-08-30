@@ -9,6 +9,7 @@ import '../../widgets/auth_shared/outlinedButton.dart';
 import '../../widgets/auth_shared/phone_number_component.dart';
 import '../../widgets/component.dart';
 import '../../widgets/shared/custom_appbar.dart';
+import 'anim_after_sending.dart';
 
 class TechnicalSupport extends StatefulWidget {
   const TechnicalSupport({super.key});
@@ -123,6 +124,7 @@ class _TechnicalSupportState extends State<TechnicalSupport> {
                                 Expanded(
                                   child: defaultButton(
                                     onTap: (){
+                                      Navigator.pushNamed(context, AnimationAfterSending.id);
 
                                     },
                                     text:'حفظ',

@@ -29,6 +29,7 @@ import 'package:gymgym/presentation/widgets/subtype_screen.dart';
 import '../presentation/screens/payment_screens/pay_way_screen.dart';
 
 import '../presentation/screens/profile_screen/profile_screen.dart';
+import '../presentation/screens/technical_support_screen/anim_after_sending.dart';
 
 class AppRoutes {
   static Map<String, Widget Function(BuildContext)> appRoutes = {
@@ -56,5 +57,7 @@ class AppRoutes {
     SuccessPaymentScreen.id: (context) => SuccessPaymentScreen(),
     AppSettingsScreen.id: (context) => const AppSettingsScreen(),
     TechnicalSupport.id: (context) => const TechnicalSupport(),
+    AnimationAfterSending.id: (context) => const AnimationAfterSending(),
+
   };
 }

@@ -48,6 +48,7 @@ class WelcomeStrangerScreen extends StatelessWidget {
                     text: 'تسجيل دخول',
                     radius: 10 * SizeConfig.horizontalBlock,
                     textStyle: AppTextStyle.buttonWhiteFontWith20,
+                    heroTag:'loginButton',
                   ),
                   SizedBox(
                     height: 16 * SizeConfig.verticalBlock,
@@ -59,6 +60,7 @@ class WelcomeStrangerScreen extends StatelessWidget {
                     text: 'إنضم الآن',
                     radius: 10 * SizeConfig.horizontalBlock,
                     textStyle: AppTextStyle.buttonWhiteFontWith20,
+                      heroTag: "registerbutton"
                   ),
                   SizedBox(
                     height: 38 * SizeConfig.verticalBlock,

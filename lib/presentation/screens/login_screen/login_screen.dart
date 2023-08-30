@@ -102,6 +102,7 @@ class _LoginScreenState extends State<LoginScreen>  {
                           text:'دخول',
                           radius: 10* SizeConfig.horizontalBlock,
                           textStyle: AppTextStyle.buttonWhiteFontWith20,
+                          heroTag: 'loginButton',
                         ),
                       ],
                     ),

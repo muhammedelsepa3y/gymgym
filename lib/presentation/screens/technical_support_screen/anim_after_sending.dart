@@ -1,5 +1,6 @@
 
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 import 'package:gymgym/constants/AppAssets.dart';
 import 'package:gymgym/constants/AppTextStyle.dart';
 import 'package:gymgym/constants/size_config.dart';
@@ -11,72 +12,37 @@ import '../../widgets/component.dart';
 import '../../widgets/slide_fade_transition/slide_fade_transition.dart';
 import '../home_layout/home_layout.dart';
 
-class WelcomeUserScreen extends StatefulWidget {
-  const WelcomeUserScreen({super.key});
+class AnimationAfterSending extends StatefulWidget {
+  const AnimationAfterSending({super.key});
 
-  static const String id = "welcomeUserScreen";
+  static const String id = "AnimationAfterSending";
 
   @override
-  State<WelcomeUserScreen> createState() => _WelcomeUserScreenState();
+  State<AnimationAfterSending> createState() => _AnimationAfterSendingScreenState();
 }
 
-class _WelcomeUserScreenState extends State<WelcomeUserScreen> with TickerProviderStateMixin {
+class _AnimationAfterSendingScreenState extends State<AnimationAfterSending> with TickerProviderStateMixin {
 
   late AnimationController _leftToCenterController;
-  late AnimationController _centerToBottomController;
-  late AnimationController _bottomToCenterController;
-
   late Animation<Offset> _leftToCenterAnimation;
-  late Animation<Offset> _centerToBottomAnimation;
-  late Animation<Offset> _bottomToCenterAnimation;
-
-  late Animation<Offset> _currentAnimation;
 
   @override
   void initState() {
     super.initState();
 
     _leftToCenterController = AnimationController(duration: Duration(seconds: 1), vsync: this);
-    _centerToBottomController = AnimationController(duration: Duration(milliseconds: 300), vsync: this);
-    _bottomToCenterController = AnimationController(duration: Duration(milliseconds: 300), vsync: this);
-
     _leftToCenterAnimation = Tween<Offset>(
         begin: Offset(-1,0),
         end: Offset(0,0)
     ).animate(_leftToCenterController)..addListener(() {
       setState(() {
-        if(_leftToCenterController.isCompleted){
-          _currentAnimation = _centerToBottomAnimation;
-        }
-      });
-    });
-    _currentAnimation = _leftToCenterAnimation;
-    _centerToBottomAnimation = Tween<Offset>(
-        begin: Offset(0,0),
-        end: Offset(0,0.3)
-    ).animate(_centerToBottomController)..addListener(() {
-      setState(() {
-        if(_centerToBottomController.isCompleted){
-          _currentAnimation = _bottomToCenterAnimation;
-        }
+
       });
     });
 
-    _bottomToCenterAnimation = Tween<Offset>(
-        begin: Offset(0,0.3),
-        end: Offset(0,0)
-    ).animate(_bottomToCenterController)..addListener(() {
-      setState(() {
-        if(_bottomToCenterController.isCompleted){
-          _currentAnimation = _leftToCenterAnimation;
-        }
-      });
-    });
 
     _leftToCenterController.forward().then((_) {
-      _centerToBottomController.forward().then((_) {
-        _bottomToCenterController.forward();
-      });
+
     });
 
   }
@@ -88,40 +54,46 @@ class _WelcomeUserScreenState extends State<WelcomeUserScreen> with TickerProvid
         child: Column(
           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
           children: [
-            Row(
-              mainAxisAlignment: MainAxisAlignment.center,
+            Column(
+              crossAxisAlignment: CrossAxisAlignment.center,
               children: [
+                SlideFadeTransition(
+                  animationDuration: Duration(milliseconds: 2000),
+                  delayStart: Duration(milliseconds: 0),
+                  offset: 2.5,
+
+                  direction: Direction.horizontal,
+                  child: Text(
+                    'أخبار جيده!',
+                    style: AppTextStyle.bodyWhiteFontWith14Bold.copyWith(
+                      color: AppColors.red,
+                    ),
+                  ),
+                  curve: Curves.linearToEaseOut,
+                ),
+                SizedBox(height: 15*SizeConfig.verticalBlock,),
                 SlideFadeTransition(
                   animationDuration: Duration(milliseconds: 1500),
                   delayStart: Duration(milliseconds: 500),
                   offset: 2.5,
                   direction: Direction.horizontal,
                   child: Text(
-                    'مرحبا بك في ',
-                    style: AppTextStyle.appName,
+                    "تتم مراجعة مشكلتك وسيتم التواصل معك",
+                    style: AppTextStyle.bodyWhiteFontWith14,
                   ),
                   curve: Curves.elasticOut,
                 ),
-                SlideFadeTransition(
-                  animationDuration: Duration(milliseconds: 2000),
-                  delayStart: Duration(milliseconds: 500),
-                  offset: 2.5,
-
-                  direction: Direction.horizontal,
-                  child: Text(
-                    ' جيم جيم!',
-                    style: AppTextStyle.appName.copyWith(
-                      color: AppColors.red,
-                    ),
-                  ),
-                  curve: Curves.linearToEaseOut,
-                ),
               ],
             ),
+
             SlideTransition(
 
-              position: _currentAnimation,
-              child: Image.asset(AppAssets.welcomeImage),
+              position: _leftToCenterAnimation,
+              child: SvgPicture.asset(
+                AppAssets.techIcon,
+                height: SizeConfig.verticalBlock * 432,
+                width: SizeConfig.horizontalBlock * 332,
+              ),
             ),
             SlideFadeTransition(
               animationDuration: Duration(milliseconds: 1000),
@@ -144,7 +116,7 @@ class _WelcomeUserScreenState extends State<WelcomeUserScreen> with TickerProvid
                             (route) => false
                     );
                   },
-                  text:'إستمر أنت شخص مميز',
+                  text:'العودة إلى الصفحة الرئيسية',
                   radius: 10* SizeConfig.horizontalBlock,
                   textStyle: AppTextStyle.buttonWhiteFontWith20,
                 ),

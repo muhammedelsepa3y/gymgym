@@ -14,29 +14,33 @@ Widget defaultButton({
   required double radius,
   double? size,
   TextStyle? textStyle,
+  String? heroTag
 }) =>
-    Container(
-      decoration: BoxDecoration(
-          borderRadius: BorderRadius.circular(radius),
-          gradient: LinearGradient(
-              begin: Alignment.bottomCenter,
-              end: Alignment.topCenter,
-              colors: color != null
-                  ? [color, color] // Use the provided color if available
-                  : [
-                      AppColors.redDark,
-                      AppColors.red,
-                    ])),
-      width: width,
-      child: MaterialButton(
-        onPressed: onTap,
-        child: Padding(
-          padding: const EdgeInsets.all(10.0),
-          child: Text(
-            isUpper ? text.toUpperCase() : text,
-            style: textStyle ??
-                AppTextStyle.bodyWhiteFontWith16
-                    .copyWith(fontSize: 20, fontWeight: FontWeight.bold),
+    Hero(
+      tag: heroTag??"",
+      child: Container(
+        decoration: BoxDecoration(
+            borderRadius: BorderRadius.circular(radius),
+            gradient: LinearGradient(
+                begin: Alignment.bottomCenter,
+                end: Alignment.topCenter,
+                colors: color != null
+                    ? [color, color] // Use the provided color if available
+                    : [
+                        AppColors.redDark,
+                        AppColors.red,
+                      ])),
+        width: width,
+        child: MaterialButton(
+          onPressed: onTap,
+          child: Padding(
+            padding: const EdgeInsets.all(10.0),
+            child: Text(
+              isUpper ? text.toUpperCase() : text,
+              style: textStyle ??
+                  AppTextStyle.bodyWhiteFontWith16
+                      .copyWith(fontSize: 20, fontWeight: FontWeight.bold),
+            ),
           ),
         ),
       ),

@@ -39,6 +39,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
 
     super.dispose();
   }
+
   void _onTapOutside(BuildContext context) {
     FocusScope.of(context).requestFocus(FocusNode());
   }
@@ -118,6 +119,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
                           text:'إنضم الآن',
                           radius: 10* SizeConfig.horizontalBlock,
                           textStyle: AppTextStyle.buttonWhiteFontWith20,
+                          heroTag: "registerbutton"
                         ),
                       ],
                     ),

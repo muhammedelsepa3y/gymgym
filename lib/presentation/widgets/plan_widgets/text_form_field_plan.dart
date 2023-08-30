@@ -17,15 +17,33 @@ class TextFormFieldPlan extends StatelessWidget {
           borderRadius: BorderRadius.circular(12),
         ),
         child: TextField(
+          readOnly: true,
           cursorColor: Colors.grey,
           decoration: InputDecoration(
             suffixIcon: Padding(
               padding: const EdgeInsets.all(8.0),
-              child: IconButton(
-                  onPressed: () {},
-                  icon: Icon(
-                    Icons.more_vert,
-                  ),),
+              child: PopupMenuButton(
+                onSelected: (value) {
+                  if (value == 'edit') {
+                    // Handle edit action
+                  } else if (value == 'delete') {
+                    // Handle delete action
+                  }
+                },
+                itemBuilder: (context) => [
+                  PopupMenuItem(
+                    value: 'edit',
+                    child: Text('Edit'),
+                  ),
+                  PopupMenuItem(
+                    value: 'delete',
+                    child: Text('Delete'),
+                  ),
+                ],
+                icon: Icon(
+                  Icons.more_vert,
+                ),
+              ),
             ),
             border: OutlineInputBorder(
               borderSide: BorderSide(

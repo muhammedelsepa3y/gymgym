@@ -144,6 +144,7 @@ class WalletPaymentScreen extends StatelessWidget {
             child: defaultButton(
               size: width * .05,
               onTap: () {
+
                 Navigator.pushNamed(context, 'SuccessPaymentScreen');
               },
               text: 'تأكيد',

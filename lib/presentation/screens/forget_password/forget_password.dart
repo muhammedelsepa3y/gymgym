@@ -81,6 +81,7 @@ class _ForgetPasswordState extends State<ForgetPassword> {
                           text:'دخول',
                           radius: 10* SizeConfig.horizontalBlock,
                           textStyle: AppTextStyle.buttonWhiteFontWith20,
+                          heroTag: 'loginButton',
                         ),
                       ],
                     ),

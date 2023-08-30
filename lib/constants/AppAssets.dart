@@ -21,6 +21,8 @@ class AppAssets {
   static const String arrowButtonIcon= 'assets/icons/arrow.svg';
   static const String politicsIcon= 'assets/icons/politics.svg';
   static const String logoutIcon= 'assets/icons/logout.svg';
+  static const String techIcon= 'assets/icons/tech.svg';
+
 
   static const String star = 'assets/icons/star.svg';
   static const String favourite = 'assets/icons/favourite.svg';
